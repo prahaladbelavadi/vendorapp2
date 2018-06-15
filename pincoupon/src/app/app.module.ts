@@ -13,12 +13,14 @@ import { Todos } from '../providers/todos';
 import { Manager } from '../providers/manager';
 import { Coupon } from '../providers/coupon';
 import { Auth } from '../providers/auth';
+import { Bitcoin } from '../providers/bitcoin';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { CouponIssuePageModule } from '../pages/coupon-issue/coupon-issue.module';
+import { PlansPageModule } from '../pages/plans/plans.module';
 import { CouponRedeemPageModule } from '../pages/coupon-redeem/coupon-redeem.module';
 import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module';
 
@@ -35,6 +37,7 @@ import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module
     HttpModule,
     HomePageModule,
     ListPageModule,
+    PlansPageModule,
     CouponIssuePageModule,
     CouponRedeemPageModule,
     CouponAdminPageModule,
@@ -54,6 +57,7 @@ import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module
     Todos, 
     Manager, 
     Coupon, 
+    Bitcoin, 
     Auth,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

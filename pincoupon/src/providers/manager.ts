@@ -16,9 +16,9 @@ export class Manager {
 
   }
 
-  getPairs(){
+  getAvailablePlans(vendorid){
 
-    var tryurl = this.url + '/api/manager/getPairs' 
+    var tryurl = this.url + '/api/manager/getAvailablePlans/' + vendorid;
     return new Promise((resolve, reject) => {
 
       let headers = new Headers();
@@ -40,6 +40,25 @@ export class Manager {
     if(!whichside) whichside = "server";
 
     var tryurl = this.url + '/api/manager/plan/' + whichside + "/"+ pairid;
+    return new Promise((resolve, reject) => {
+
+      let headers = new Headers();
+      headers.append('Authorization', this.authService.token);
+
+      this.http.get(tryurl, {headers: headers})
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
+  getPairs(){
+
+    var tryurl = this.url + '/api/manager/getPairs' 
     return new Promise((resolve, reject) => {
 
       let headers = new Headers();

@@ -20,31 +20,42 @@
 	Select coupon plan
         </ion-item>
         <ion-item>
-                    <ion-label>Plans </ion-label>
+                    <ion-label>Coupon type </ion-label>
                     <ion-select [(ngModel)]="coupondata.couponplan">
-                        <ion-option value="6percentplan">plan6</ion-option>
-                        <ion-option value="8percentplan">plan8</ion-option>
-                        <ion-option value="4percentplan">plan4</ion-option>
+                        <ion-option *ngFor="let todo of availablePlans"
+                        value={{todo.name}}
+                        > {{todo.desc}} 
+                        </ion-option>
                     </ion-select>
         </ion-item>
+        <ion-item>
+        Plan name: {{coupondata.couponplan}}
+        </ion-item>
 
-        <ion-item-divider>
-            <p> Create coupon that works with a PIN </p>
+        <ion-item-divider color="primary">
+        Create coupon below
         </ion-item-divider>
         <ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-input type="text" [(ngModel)]="coupondata.couponid" placeholder="Coupon id"></ion-input>
+            <ion-textarea type="text" [(ngModel)]="coupondata.couponid" placeholder="Coupon id"></ion-textarea>
+            <button item-right ion-button (click)="createCouponId()" color="primary">Create coupon id</button>
         </ion-item>
         <ion-item>
             <ion-input type="number" [(ngModel)]="coupondata.couponpin" placeholder="Enter PIN "></ion-input>
-            <button item-right ion-button color="primary">Validate</button>
+            <button item-right ion-button color="primary" (click)="createPIN()">Create PIN</button>
         </ion-item>
         <ion-item>
-            <ion-input type="number" [(ngModel)]="coupondata.couponvalue" placeholder="Enter Amount"></ion-input>
-            <button clear item-right ion-button>Validate</button>
+            <ion-input type="number" [(ngModel)]="coupondata.couponvalue" placeholder="Enter coupon amount"></ion-input>
+            <button item-right ion-button color="primary" (click)="checkFunds()">Check fund avaiability </button>
+        </ion-item>
+
+        <ion-item *ngIf="balance != ''">
+           Balance: {{balance.balance}}
+           unconfirmed_n_tx : {{ balance.unconfirmed_n_tx }}
+           unconfirmed_balance : {{ balance.unconfirmed_balance }}
+
         </ion-item>
         <ion-item>
+
             <button item-left ion-button (click)="createCoupon()">Create coupon </button>
             <a item-right ion-button  href="">Download coupon </a>
         </ion-item>
@@ -52,7 +63,7 @@
             <button item-left ion-button (click)="activateCoupon()">Activate </button>
         </ion-item>
         <ion-item>
-            <button item-left ion-button (click)="getCouponBalance">Check balance </button>
+            <button item-left ion-button (click)="getCouponBalance">Verify balance in coupon </button>
         </ion-item>
    </ion-list>
 

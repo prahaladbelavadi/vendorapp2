@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Coupon } from '../../providers/coupon';
+import { Bitcoin } from '../../providers/bitcoin';
+import { Manager } from '../../providers/manager';
 
 /**
  * Generated class for the CouponIssuePage page.
@@ -22,17 +24,24 @@ export class CouponIssuePage {
   balance: any;
   loading: any;
   coupondata: any;
+  availablePlans: any;
 
   constructor(public navCtrl: NavController, public couponService: Coupon, 
+              public managerService: Manager,
+              public bitcoinService: Bitcoin,
               public loadingCtrl: LoadingController,
               public navParams: NavParams) {
 
-       this.coupondata = {
+    this.coupondata = {
             couponid: '',
             coupontype: '',
+            couponplan: '',
 	    couponvalue: '',
             couponpin: ''
-       };
+    };
+    this.availablePlans = '';
+    this.balance = '';
+    this.getAvailablePlans();
   }
 
   ionViewDidLoad() {
@@ -47,6 +56,27 @@ export class CouponIssuePage {
 
     this.loading.present();
 
+  }
+
+  checkFunds() {
+    var fundaddress = '2N43g2SV2PRp3FJUZ92NHDYY36QckV6mSP9';
+    this.bitcoinService
+      .getBalances(fundaddress).subscribe(posts  => {
+      this.balance = posts;
+    }, error => {
+        console.log(error);
+    });
+  }
+ 
+  createPIN()
+  {
+    var length = 5;
+    this.coupondata.couponpin  = Math.random().toString().substr(2, length);
+  }
+  
+  createCouponId()
+  {
+    this.coupondata.couponid = this.bitcoinService.getRandomPubkey();
   }
   
   couponCreate() {
@@ -78,6 +108,17 @@ export class CouponIssuePage {
                                 });
   }
 
+  getAvailablePlans() {
+
+   var vendorid = 10;
+
+   this.managerService.getAvailablePlans(vendorid).then((result) => {
+                this.availablePlans = result;
+                console.log("got plans");
+                       }, (err) => {
+                console.log("getting plans failed "+ err);
+                });
+  }
   
   activateCoupon(coupon){
 

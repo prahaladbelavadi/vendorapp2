@@ -1,5 +1,6 @@
+
 <!--
-  Generated template for the BalancesPage page.
+  Generated template for the DroneLockPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,12 +8,41 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Balances</ion-title>
+    <ion-title>Balance panel </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list  inset padding>
+        <ion-item>
+            <ion-label > Balance of income address: </ion-label>
+            <button clear item-right ion-button>Get income address balance  </button>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text"  [(ngModel)]="plandata.vendorincomeaddress" placeholder="Amount to withdraw "></ion-input>
+            <button  item-right ion-button>Withdraw income </button>
+        </ion-item>
+        <ion-item>
+            <ion-label > Balance of fees address: </ion-label>
+            <button clear item-right ion-button>Get fees balance  </button>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text"  [(ngModel)]="plandata.vendorincomeaddress" placeholder="Amount to add to fees address "></ion-input>
+            <button  item-right ion-button>Topup fees address </button>
+        </ion-item>
+        <ion-item>
+            <ion-label > Balance of coupon charging address: </ion-label>
+            <button clear item-right ion-button>Get coupon charging balance  </button>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text"  [(ngModel)]="plandata.vendorincomeaddress" placeholder="Amount to charge "></ion-input>
+            <button  item-right ion-button>Topup </button>
+        </ion-item>
+        <ion-item>
+        </ion-item>
+   </ion-list>
 
 </ion-content>
