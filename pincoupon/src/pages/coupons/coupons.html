@@ -1,0 +1,33 @@
+<ion-header>
+ <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  <ion-title>
+    Coupons
+  </ion-title>
+  <ion-buttons end>
+    <button ion-button icon-only (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
+  </ion-buttons>
+ </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list no-lines>
+
+    <ion-item-sliding *ngFor="let todo of coupons">
+
+      <ion-item>
+        Coupon-id: {{todo.couponid}}
+        <button ion-button item-right color="primary" (click)="selectCoupon(todo)">
+          Select
+        </button>
+      </ion-item>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>
+

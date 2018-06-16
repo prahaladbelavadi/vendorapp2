@@ -17,7 +17,7 @@ export class CouponAdminPage {
 
   plansRoot = 'UsersPage'   // 
   adminRoot = 'AdminPage'
-  transactionsRoot = 'TransactionsPage'
+  couponsRoot = 'CouponsPage'
   balancesRoot = 'BalancesPage'
 
 

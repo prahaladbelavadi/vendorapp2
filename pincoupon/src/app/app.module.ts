@@ -23,6 +23,7 @@ import { CouponIssuePageModule } from '../pages/coupon-issue/coupon-issue.module
 import { PlansPageModule } from '../pages/plans/plans.module';
 import { CouponRedeemPageModule } from '../pages/coupon-redeem/coupon-redeem.module';
 import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module';
+import { CouponsPageModule } from '../pages/coupons/coupons.module';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module
     ListPageModule,
     PlansPageModule,
     CouponIssuePageModule,
+    CouponsPageModule,
     CouponRedeemPageModule,
     CouponAdminPageModule,
     IonicModule.forRoot(MyApp),
