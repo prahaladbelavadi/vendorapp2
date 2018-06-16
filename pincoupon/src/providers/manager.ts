@@ -35,6 +35,25 @@ export class Manager {
 
   }
 
+  getAvailableSchemes(vendorid){
+
+    var tryurl = this.url + '/api/manager/getAvailableSchemes/' + vendorid;
+    return new Promise((resolve, reject) => {
+
+      let headers = new Headers();
+      headers.append('Authorization', this.authService.token);
+
+      this.http.get(tryurl, {headers: headers})
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
   getPair(pairid, whichside){
 
     if(!whichside) whichside = "server";

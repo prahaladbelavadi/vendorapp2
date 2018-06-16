@@ -17,10 +17,22 @@
 
   <ion-list  inset padding>
         <ion-item>
-	Select coupon plan
+            <ion-input type="text" [(ngModel)]="coupondata.couponname" placeholder="Enter coupon name "></ion-input>
         </ion-item>
         <ion-item>
-                    <ion-label>Coupon type </ion-label>
+            <ion-input type="text" [(ngModel)]="coupondata.couponbrand" placeholder="Enter coupon brand "></ion-input>
+        </ion-item>
+        <ion-item>
+                    <ion-label>Coupon Scheme </ion-label>
+                    <ion-select [(ngModel)]="coupondata.couponscheme">
+                        <ion-option *ngFor="let todo of availableSchemes"
+                        value={{todo.name}}
+                        > {{todo.desc}} 
+                        </ion-option>
+                    </ion-select>
+        </ion-item>
+        <ion-item>
+                    <ion-label>Coupon plan </ion-label>
                     <ion-select [(ngModel)]="coupondata.couponplan">
                         <ion-option *ngFor="let todo of availablePlans"
                         value={{todo.name}}
@@ -29,9 +41,9 @@
                     </ion-select>
         </ion-item>
         <ion-item>
-        Plan name: {{coupondata.couponplan}}
+        <ion-label> Scheme : {{coupondata.couponscheme}} </ion-label>
+        <ion-label item-right> Plan : {{coupondata.couponplan}} </ion-label>
         </ion-item>
-
         <ion-item-divider color="primary">
         Create coupon below
         </ion-item-divider>

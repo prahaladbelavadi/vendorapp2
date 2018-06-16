@@ -25,6 +25,7 @@ export class CouponIssuePage {
   loading: any;
   coupondata: any;
   availablePlans: any;
+  availableSchemes: any;
 
   constructor(public navCtrl: NavController, public couponService: Coupon, 
               public managerService: Manager,
@@ -34,14 +35,18 @@ export class CouponIssuePage {
 
     this.coupondata = {
             couponid: '',
-            coupontype: '',
+            couponname: '',
+            couponbrand: '',
             couponplan: '',
+            couponscheme: '',
 	    couponvalue: '',
             couponpin: ''
     };
     this.availablePlans = '';
+    this.availableSchemes = '';
     this.balance = '';
     this.getAvailablePlans();
+    this.getAvailableSchemes();
   }
 
   ionViewDidLoad() {
@@ -79,7 +84,7 @@ export class CouponIssuePage {
     this.coupondata.couponid = this.bitcoinService.getRandomPubkey();
   }
   
-  couponCreate() {
+  createCoupon() {
     this.showLoader();
 
    this.couponService.createCoupon(this.coupondata).then((result) => {
@@ -107,6 +112,20 @@ export class CouponIssuePage {
                                         console.log("not allowed"+ err);
                                 });
   }
+
+  getAvailableSchemes() {
+
+   var vendorid = 10;
+
+   this.managerService.getAvailableSchemes(vendorid).then((result) => {
+                this.availableSchemes = result;
+                console.log("got plans");
+                       }, (err) => {
+                console.log("getting plans failed "+ err);
+                });
+  }
+  
+  
 
   getAvailablePlans() {
 
