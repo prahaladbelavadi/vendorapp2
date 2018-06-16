@@ -15,7 +15,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class CouponAdminPage {
 
-  plansRoot = 'UsersPage'   // 
+  plansRoot = 'PlansPage'   // 
   adminRoot = 'AdminPage'
   couponsRoot = 'CouponsPage'
   balancesRoot = 'BalancesPage'

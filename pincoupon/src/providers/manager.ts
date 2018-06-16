@@ -54,7 +54,7 @@ export class Manager {
 
   }
 
-  getPair(pairid, whichside){
+  getPlan(pairid, whichside){
 
     if(!whichside) whichside = "server";
 
@@ -75,9 +75,9 @@ export class Manager {
 
   }
 
-  getPairs(){
+  getPlans(){
 
-    var tryurl = this.url + '/api/manager/getPairs' 
+    var tryurl = this.url + '/api/manager/getPlans' 
     return new Promise((resolve, reject) => {
 
       let headers = new Headers();
@@ -94,7 +94,7 @@ export class Manager {
 
   }
 
-  createPair(vendordata){
+  createPlan(vendordata){
 
     return new Promise((resolve, reject) => {
 
@@ -102,7 +102,7 @@ export class Manager {
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.authService.token);
 
-      this.http.post(this.url + '/api/manager/createPair',JSON.stringify(vendordata), {headers: headers})
+      this.http.post(this.url + '/api/manager/createPlan',JSON.stringify(vendordata), {headers: headers})
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -114,7 +114,7 @@ export class Manager {
 
   }
 
-  deletePair(pairid){
+  deletePlan(pairid){
 
     var tryurl = this.url + '/api/manager/delete/' + pairid;
 
@@ -133,7 +133,7 @@ export class Manager {
 
   }
   
-  pauseActivatePair(pauseactivate){
+  pauseActivatePlan(pauseactivate){
 
     var pairid;
  

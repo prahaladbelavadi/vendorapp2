@@ -28,7 +28,7 @@ export class UsersPage {
 
   ionViewDidLoad(){
 
-    this.relationService.getPairs().then((data) => {
+    this.relationService.getPlans().then((data) => {
                   this.relations = data;
     }, (err) => {
         console.log("not allowed");
@@ -38,7 +38,7 @@ export class UsersPage {
 
   refresh () {
 
-    this.relationService.getPairs().then((data) => {
+    this.relationService.getPlans().then((data) => {
                   this.relations = data;
     }, (err) => {
         console.log("not allowed");

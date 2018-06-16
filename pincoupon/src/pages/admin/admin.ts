@@ -53,7 +53,7 @@ export class AdminPage {
   planCreate() {
     this.showLoader();
 
-   this.planService.createPair(this.plandata).then((result) => {
+   this.planService.createPlan(this.plandata).then((result) => {
                 this.loading.dismiss();
                 this.plan = result;
                                         console.log("plan created");
@@ -72,7 +72,7 @@ export class AdminPage {
 
    var whichside = 1;
 
-   this.planService.getPair(plandata, whichside).then((result) => {
+   this.planService.getPlan(plandata, whichside).then((result) => {
                 this.loading.dismiss();
                 this.plan = result;
                                         console.log("plan created");
@@ -92,7 +92,7 @@ export class AdminPage {
         planid : 1
     };
 
-    this.planService.pauseActivatePair(pauseactivate).then((result) => {
+    this.planService.pauseActivatePlan(pauseactivate).then((result) => {
 
       this.loading.dismiss();
 
@@ -119,7 +119,7 @@ export class AdminPage {
         planid : 1
     };
 
-    this.planService.pauseActivatePair(pauseactivate).then((result) => {
+    this.planService.pauseActivatePlan(pauseactivate).then((result) => {
 
       this.loading.dismiss();
 
