@@ -55,6 +55,11 @@ export class CouponsPage {
 
   }
 
+  showCoupon(coupon) {
+     this.navCtrl.push('CouponviewPage', {coupon: coupon});
+  }
+
+
 
 
 }

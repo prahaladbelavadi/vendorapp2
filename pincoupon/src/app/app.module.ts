@@ -25,6 +25,7 @@ import { CouponRedeemPageModule } from '../pages/coupon-redeem/coupon-redeem.mod
 import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module';
 import { CouponsPageModule } from '../pages/coupons/coupons.module';
 import { PlanviewPageModule } from '../pages/planview/planview.module';
+import { CouponviewPageModule } from '../pages/couponview/couponview.module';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { PlanviewPageModule } from '../pages/planview/planview.module';
     ListPageModule,
     PlansPageModule,
     PlanviewPageModule,
+    CouponviewPageModule,
     CouponIssuePageModule,
     CouponsPageModule,
     CouponRedeemPageModule,
