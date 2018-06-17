@@ -23,17 +23,22 @@ export class CouponRedeemPage {
   loading: any;
   coupondata: any;
   redeemstatus: any; 
+  redeemdata: any;
 
   constructor(public navCtrl: NavController, public couponService: Coupon, 
               public loadingCtrl: LoadingController,
               public navParams: NavParams) {
 
        this.coupondata = {
-            couponid: '',
-            coupontype: '',
-	    couponvalue: '',
-            couponpin: ''
+            couponid: ''
        };
+
+       this.redeemdata = {
+            couponpin: '',
+            couponmetadata: '',
+            redeemaddress: ''
+       };
+
   }
 
   ionViewDidLoad() {
@@ -53,10 +58,8 @@ export class CouponRedeemPage {
   validateCoupon() {
     this.showLoader();
 
-   var coupondata = {
-        name: 'test'
-   };
-   this.couponService.validateCoupon(coupondata).then((result) => {
+
+   this.couponService.validateCoupon(this.coupondata).then((result) => {
                 this.loading.dismiss();
                 this.coupon = result;
                                         console.log("coupon created");
@@ -66,13 +69,27 @@ export class CouponRedeemPage {
                                 });
   }
 
-  
-  redeemCoupon(coupon){
-
+  getCoupon() {
     this.showLoader();
 
 
-    this.couponService.redeemCoupon(coupon).then((result) => {
+   this.couponService.getCoupon(this.coupondata.couponid).then((result) => {
+                this.loading.dismiss();
+                this.coupon = result;
+                        console.log("coupon retrieved");
+                                }, (err) => {
+                this.loading.dismiss();
+                        console.log("coupon retreive failed  "+ err);
+                                });
+  }
+  
+  redeemCoupon(){
+
+    this.showLoader();
+    this.redeemdata.couponmetadata = this.coupon.couponplan;
+    // in this example extracted from coupon
+
+    this.couponService.redeemCoupon(this.coupon, this.redeemdata).then((result) => {
 
       this.loading.dismiss();
       this.redeemstatus = result;
@@ -85,17 +102,12 @@ export class CouponRedeemPage {
   }
 
   
-  getCouponBalance(coupon){
+  getCouponBalance(){
 
     this.showLoader();
 
-    var coupondata = {
-        activate : false,
-        pause: true,
-        couponid : 1
-    };
 
-    this.couponService.getcouponBalance(coupondata).then((result) => {
+    this.couponService.getcouponBalance(this.coupondata).then((result) => {
 
       this.loading.dismiss();
       this.balance = result;

@@ -27,8 +27,8 @@ export class PlansPage {
   }
 
   ionViewDidLoad(){
-
-    this.relationService.getPlans().then((data) => {
+    var vendorid = 1;
+    this.relationService.getAvailablePlans(vendorid).then((data) => {
                   this.relations = data;
     }, (err) => {
         console.log("not allowed");
@@ -37,8 +37,8 @@ export class PlansPage {
   }
 
   refresh () {
-
-    this.relationService.getPlans().then((data) => {
+    var vendorid = 1;
+    this.relationService.getAvailablePlans(vendorid).then((data) => {
                   this.relations = data;
     }, (err) => {
         console.log("not allowed");
@@ -53,6 +53,10 @@ export class PlansPage {
 
     this.loading.present();
 
+  }
+  
+  showPlan(plan) {
+     this.navCtrl.push('PlanviewPage', {plan: plan});
   }
 
 

@@ -19,8 +19,8 @@
     <ion-item-sliding *ngFor="let todo of relations">
 
       <ion-item>
-        Plan-id: {{todo.pairid}}
-        <button ion-button item-right color="primary" (click)="deleteTodo(todo)">
+        Plan-id: {{todo.name}}
+        <button ion-button item-right color="primary" (click)="showPlan(todo)">
           Select
         </button>
       </ion-item>

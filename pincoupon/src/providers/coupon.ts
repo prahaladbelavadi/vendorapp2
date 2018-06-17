@@ -121,7 +121,7 @@ export class Coupon {
   }
 
 
-  redeemCoupon(coupondata){
+  redeemCoupon(coupondata, redeemdata){
     var couponid =1;
 
     var tryurl = this.url + '/api/coupon/redeem/' + couponid;
