@@ -29,9 +29,10 @@ export class AdminPage {
 	      public navParams: NavParams) {
 
        this.plandata = {
-	  vendorincomeaddress: 'xx1',
-	  vendorspendingaddress: 'xx2',
-	  vendorspendingamount : 100
+	  vendorplanname: '',
+	  vendoraddress: '',
+	  vendorfixedfees : '',
+          vendorpercentagefees: ''
 
        };
   }

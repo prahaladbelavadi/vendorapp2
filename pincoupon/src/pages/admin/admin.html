@@ -27,10 +27,13 @@
             <ion-input type="text"  [(ngModel)]="plandata.planname" placeholder="Enter Plan name "></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="number"  [(ngModel)]="plandata.fixedfees" placeholder="Vendor fixed fees"></ion-input>
+            <ion-input type="text"  [(ngModel)]="plandata.vendoraddress" placeholder="Vendor income address "></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="number"  [(ngModel)]="plandata.percentagefees" placeholder="Vendor percentage fees"></ion-input>
+            <ion-input type="number"  [(ngModel)]="plandata.vendorfixedfees" placeholder="Vendor fixed fees"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="number"  [(ngModel)]="plandata.vendorpercentagefees" placeholder="Vendor percentage fees"></ion-input>
         </ion-item>
         <ion-item>
             <button item-left ion-button (click)="createPlan()">Create Plan </button>
