@@ -21,6 +21,7 @@ export class PlanviewPage {
   balance: any;
   loading: any;
   amount: any;
+  parsedvendor : any;
 
   constructor(public navCtrl: NavController, 
               public loadingCtrl: LoadingController,
@@ -33,7 +34,8 @@ export class PlanviewPage {
        {
 	  this.navCtrl.push('PlansPage');
        }
-       this.plan = this.navParams.data.plan;
+       this.plan = JSON.parse(this.navParams.data.plan.serverdata);
+       //this.parsedvebd = this.navParams.data.plan;
        this.plan.vendoraddress = '2N43g2SV2PRp3FJUZ92NHDYY36QckV6mSP9';
   }
 

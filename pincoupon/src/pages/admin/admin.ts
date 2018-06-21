@@ -51,7 +51,7 @@ export class AdminPage {
 
   }
 
-  planCreate() {
+  createPlan() {
     this.showLoader();
 
    this.planService.createPlan(this.plandata).then((result) => {

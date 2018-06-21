@@ -18,16 +18,14 @@
 <ion-content padding>
      <div *ngIf="plan != null">
 <ion-item>
-  Plan name : {{plan.name}}
+  Plan name : {{plan.planname}}
+  Plan id : {{plan.planid}}
 </ion-item>
 <ion-item>
-  Plan description : {{plan.desc}}
+  Percentage income : {{plan.vendorpercentagefees}}
 </ion-item>
 <ion-item>
-  Percentage income : {{plan.percent}}
-</ion-item>
-<ion-item>
-  Fixed income : {{plan.fixed}}
+  Fixed income : {{plan.vendorfixedfees}}
 </ion-item>
 <ion-item>
   Vendor income address for plan: {{plan.vendoraddress}}
