@@ -47,6 +47,7 @@ export class CouponIssuePage {
     this.balance = '';
     this.getAvailablePlans();
     this.getAvailableSchemes();
+    alert(JSON.stringify(this.availablePlans));
   }
 
   ionViewDidLoad() {
@@ -132,7 +133,12 @@ export class CouponIssuePage {
    var vendorid = 10;
 
    this.managerService.getAvailablePlans(vendorid).then((result) => {
-                this.availablePlans = result;
+                this.availablePlans = result.map(function(x) {
+
+                       var p = JSON.parse(x.serverdata);
+                       return {planname: p.planname, plainid: p.planid}
+                       } );
+
                 console.log("got plans");
                        }, (err) => {
                 console.log("getting plans failed "+ err);

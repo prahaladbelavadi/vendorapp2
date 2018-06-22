@@ -26,9 +26,16 @@
         <ion-item>
             <ion-input type="text"  [(ngModel)]="plandata.planname" placeholder="Enter Plan name "></ion-input>
         </ion-item>
-        <ion-item>
-            <ion-input type="text"  [(ngModel)]="plandata.vendoraddress" placeholder="Vendor income address "></ion-input>
+         <ion-item>
+                    <ion-label> Plan Scheme </ion-label>
+                    <ion-select [(ngModel)]="plandata.planscheme">
+                        <ion-option *ngFor="let todo of availableSchemes"
+                        value={{todo.name}}
+                        > {{todo.desc}}
+                        </ion-option>
+                    </ion-select>
         </ion-item>
+
         <ion-item>
             <ion-input type="number"  [(ngModel)]="plandata.vendorfixedfees" placeholder="Vendor fixed fees"></ion-input>
         </ion-item>

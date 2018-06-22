@@ -20,6 +20,7 @@ export class AdminPage {
   loading: any;
   plan: any;
   plans: any;
+  availableSchemes: any; 
  
   plandata : any;
 
@@ -28,13 +29,16 @@ export class AdminPage {
               public loadingCtrl: LoadingController,
 	      public navParams: NavParams) {
 
+       this.availableSchemes = [];
        this.plandata = {
 	  vendorplanname: '',
-	  vendoraddress: '',
+          planscheme :'',
+	  vendoraddress: 'placeholder',
 	  vendorfixedfees : '',
           vendorpercentagefees: ''
 
        };
+      this.getAvailableSchemes() ;
   }
 
   ionViewDidLoad() {
@@ -50,6 +54,18 @@ export class AdminPage {
     this.loading.present();
 
   }
+  getAvailableSchemes() {
+
+   var vendorid = 10;
+
+   this.planService.getAvailableSchemes(vendorid).then((result) => {
+                this.availableSchemes = result;
+                console.log("got plans");
+                       }, (err) => {
+                console.log("getting plans failed "+ err);
+                });
+  }
+
 
   createPlan() {
     this.showLoader();
