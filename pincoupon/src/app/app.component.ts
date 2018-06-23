@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { CouponsPage } from '../pages/coupons/coupons';
+import { PlansPage } from '../pages/plans/plans';
 import { CouponIssuePage } from '../pages/coupon-issue/coupon-issue';
 import { CouponRedeemPage } from '../pages/coupon-redeem/coupon-redeem';
 import { CouponAdminPage } from '../pages/coupon-admin/coupon-admin';
@@ -35,7 +37,9 @@ export class MyApp {
       { title: 'Coupon Server', component: CouponIssuePage, icon: 'contact' },
       { title: 'Coupon Client', component: CouponRedeemPage, icon: 'contact' },
       { title: 'Divider', component: '', icon: 'none' },
-      { title: 'Vendor Plan Admin ', component: CouponAdminPage, icon: 'contact' },
+      { title: 'Vendor Admin ', component: CouponAdminPage, icon: 'contact' },
+      { title: 'Vendor Plans ', component: PlansPage, icon: 'contact' },
+      { title: 'Vendor Coupons ', component: CouponsPage, icon: 'contact' },
       { title: 'Divider', component: '', icon: 'none' }
     ];
 

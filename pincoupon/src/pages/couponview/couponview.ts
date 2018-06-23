@@ -34,6 +34,7 @@ export class CouponviewPage {
 	  this.navCtrl.push('CouponsPage');
        }
        this.coupon = this.navParams.data.coupon;
+  
   }
 
   ionViewDidLoad() {
