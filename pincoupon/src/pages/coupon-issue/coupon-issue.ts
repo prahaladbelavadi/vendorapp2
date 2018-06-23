@@ -35,9 +35,12 @@ export class CouponIssuePage {
 
     this.coupondata = {
             couponid: '',
+            couponkey: '',
+            vendorid: '',
             couponname: '',
             couponbrand: '',
             couponplan: '',
+            couponplanid: '',
             couponscheme: '',
 	    couponvalue: '',
             couponpin: ''
@@ -82,11 +85,27 @@ export class CouponIssuePage {
   
   createCouponId()
   {
-    this.coupondata.couponid = this.bitcoinService.getRandomPubkey();
+    this.coupondata.couponkey = this.bitcoinService.getRandomPubkey();
+    this.coupondata.couponid = "AX_"+this.coupondata.couponkey.substr(0, 9).toUpperCase();
   }
   
+  getplandata (planid)
+  {
+    for(i=0; i< this.availablePlans.length; i++)
+    {
+	if(this.availablePlans[i].planid == planid)
+        {
+	 return this.availablePlans[i];
+        }
+    }
+  }
+
   createCoupon() {
     this.showLoader();
+
+   var p1 = this.getplandata(this.coupondata.couponplanid);
+   this.coupondata.couponplan = JSON.stringify(p1);
+   this.coupondata.vendorid = p1.vendorid;
 
    this.couponService.createCoupon(this.coupondata).then((result) => {
                 this.loading.dismiss();
@@ -136,7 +155,7 @@ export class CouponIssuePage {
                 this.availablePlans = result.map(function(x) {
 
                        var p = JSON.parse(x.serverdata);
-                       return {planname: p.planname, plainid: p.planid}
+                       return p; //{planname: p.planname, plainid: p.planid}
                        } );
 
                 console.log("got plans");
