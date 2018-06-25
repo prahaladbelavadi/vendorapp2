@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { BalancesPage } from '../pages/balances/balances';
 import { CouponsPage } from '../pages/coupons/coupons';
 import { PlansPage } from '../pages/plans/plans';
 import { CouponIssuePage } from '../pages/coupon-issue/coupon-issue';
@@ -40,6 +41,7 @@ export class MyApp {
       { title: 'Vendor Admin ', component: CouponAdminPage, icon: 'contact' },
       { title: 'Vendor Plans ', component: PlansPage, icon: 'contact' },
       { title: 'Vendor Coupons ', component: CouponsPage, icon: 'contact' },
+      { title: 'Vendor Balances ', component: BalancesPage, icon: 'contact' },
       { title: 'Divider', component: '', icon: 'none' }
     ];
 

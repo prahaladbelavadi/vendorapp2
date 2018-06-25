@@ -45,7 +45,7 @@ export class PlanviewPage {
 
   getBalance() {
     this.bitcoinService
-      .getBalances(this.plan.vendoraddress).subscribe(posts  => {
+      .getBalances(this.plan.vendoraddress).then(posts  => {
       this.balance = posts;
     }, error => {
         console.log(error);

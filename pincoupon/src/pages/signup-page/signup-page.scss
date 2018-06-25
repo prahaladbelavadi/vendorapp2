@@ -3,7 +3,6 @@
 	signup-page {
 	 
 	 	ion-content {
-	 		background-color: map-get($colors, twitter);
 	 	}
 	    
 	    scroll-content {
@@ -15,8 +14,7 @@
 	        border-radius: 30px !important;
 	        padding-left: 10px !important;
 	        margin-bottom: 10px;
-	        background-color: #f6f6f6;
-	        opacity: 0.7;
+		background-color: black;
 	        font-size: 0.9em;
 	    }
 	 
@@ -42,10 +40,10 @@
 	    .continue-button {
 	        width: 100%;
 	        border-radius: 30px;
+                color: blue;
 	        margin-top: 30px;
 	        font-size: 0.9em;
-	        background-color: transparent;
-	        border: 1px solid #fff;
+	        border: 1px solid ;
 	    }
 	 
 	}

@@ -24,6 +24,7 @@ import { PlansPageModule } from '../pages/plans/plans.module';
 import { CouponRedeemPageModule } from '../pages/coupon-redeem/coupon-redeem.module';
 import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module';
 import { CouponsPageModule } from '../pages/coupons/coupons.module';
+import { BalancesPageModule } from '../pages/balances/balances.module';
 import { PlanviewPageModule } from '../pages/planview/planview.module';
 import { CouponviewPageModule } from '../pages/couponview/couponview.module';
 
@@ -43,6 +44,7 @@ import { CouponviewPageModule } from '../pages/couponview/couponview.module';
     PlansPageModule,
     PlanviewPageModule,
     CouponviewPageModule,
+    BalancesPageModule,
     CouponIssuePageModule,
     CouponsPageModule,
     CouponRedeemPageModule,

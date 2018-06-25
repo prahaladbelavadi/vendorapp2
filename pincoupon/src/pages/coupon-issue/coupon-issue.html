@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
- <ion-navbar color="primary">
+ <ion-navbar >
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -17,7 +17,7 @@
 <ion-content padding>
 
   <ion-list  inset padding>
-   <ion-item-divider color="primary">
+   <ion-item-divider class="roundedge">
             <p> Create coupon, protected by PIN </p>
         </ion-item-divider>
 
@@ -39,20 +39,20 @@
         <ion-item>
         <ion-label item-right> Plan-id : {{coupondata.couponplanid}} </ion-label>
         </ion-item>
-        <ion-item-divider color="primary">
+        <ion-item-divider class="roundedge">
         Create coupon below
         </ion-item-divider>
         <ion-item>
             <ion-textarea type="text" [(ngModel)]="coupondata.couponid" placeholder="Coupon id"></ion-textarea>
-            <button item-right ion-button (click)="createCouponId()" color="primary">Create coupon id</button>
+            <button item-right ion-button class="colorbutton" (click)="createCouponId()" >Create coupon id</button>
         </ion-item>
         <ion-item>
             <ion-input type="number" [(ngModel)]="coupondata.couponpin" placeholder="Enter PIN "></ion-input>
-            <button item-right ion-button color="primary" (click)="createPIN()">Create PIN</button>
+            <button item-right ion-button class="colorbutton" (click)="createPIN()">Create PIN</button>
         </ion-item>
         <ion-item>
             <ion-input type="number" [(ngModel)]="coupondata.couponvalue" placeholder="Enter coupon amount"></ion-input>
-            <button item-right ion-button color="primary" (click)="checkFunds()">Check fund availability </button>
+            <button item-right ion-button class="colorbutton" (click)="checkFunds()">Check fund availability </button>
         </ion-item>
 
         <ion-item *ngIf="balance != ''">
@@ -63,17 +63,17 @@
         </ion-item>
         <ion-item>
 
-            <button item-left ion-button (click)="createCoupon()">Create coupon </button>
-            <a item-right ion-button  href="">Coupon download  
+            <button item-left ion-button class="colorbutton" (click)="createCoupon()">Create coupon </button>
+            <a item-right ion-button class="colorbutton" href="">Coupon download  
                     <ion-label><ion-icon name="download"></ion-icon></ion-label>
              </a>
         </ion-item>
 
         <ion-item>
-            <button item-left ion-button (click)="activateCoupon()">Activate </button>
+            <button item-left ion-button class="colorbutton" (click)="activateCoupon()">Activate </button>
         </ion-item>
         <ion-item>
-            <button item-left ion-button (click)="getCouponBalance">Verify balance in coupon </button>
+            <button item-left class="colorbutton" ion-button (click)="getCouponBalance">Verify balance in coupon </button>
         </ion-item>
    </ion-list>
 

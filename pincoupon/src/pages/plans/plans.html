@@ -1,5 +1,5 @@
 <ion-header>
- <ion-navbar color="primary">
+ <ion-navbar >
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -14,13 +14,13 @@
 
 <ion-content>
 
-  <ion-list no-lines>
+  <ion-list inset no-lines padding>
 
     <ion-item-sliding *ngFor="let todo of relations">
 
       <ion-item>
         Plan-id: {{todo.planid}}  ( {{todo.planname}})
-        <button ion-button item-right color="primary" (click)="showPlan(todo)">
+        <button ion-button item-right class="colorbutton" (click)="showPlan(todo)">
           Select
         </button>
       </ion-item>
