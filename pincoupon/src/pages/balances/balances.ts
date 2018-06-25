@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { Manager } from '../../providers/manager';
+import { Coupon } from '../../providers/coupon';
+import { Bitcoin } from '../../providers/bitcoin';
 
 /**
  * Generated class for the BalancesPage page.
@@ -19,20 +21,42 @@ export class BalancesPage {
   loading: any;
   plan: any;
   plans: any;
+  feesdata: any;
+  chargingdata: any;
+  chargingamount : any;
+  feesamount : any;
+  availablePlans : any;
  
   plandata : any;
 
   constructor(public navCtrl: NavController, 
               public planService: Manager,
+              public couponService: Coupon,
+              public bitcoinService: Bitcoin,
               public loadingCtrl: LoadingController,
 	      public navParams: NavParams) {
 
        this.plandata = {
-	  vendorincomeaddress: 'xx1',
-	  vendorspendingaddress: 'xx2',
-	  vendorspendingamount : 100
+	  vendoraddress: '',
+          balance: {}
 
        };
+
+       this.feesdata = {
+	  address: '',
+          balance: ''
+       };
+
+       this.chargingdata = {
+	  address: '',
+          balance: ''
+       };
+
+       this.feesamount = "0";
+       this.chargingamount = "0";
+       this.getChargingBalance(); 
+       this.getFeesBalance(); 
+       this.getAvailablePlans(); 
   }
 
   ionViewDidLoad() {
@@ -48,6 +72,24 @@ export class BalancesPage {
     this.loading.present();
 
   }
+
+   getAvailablePlans() {
+
+   var vendorid = 10;
+
+   this.planService.getAvailablePlans(vendorid).then((result: Array<any>) => {
+                this.availablePlans = result.map(function(x) {
+
+                       var p = JSON.parse(x.serverdata);
+                       return p; //{planname: p.planname, plainid: p.planid}
+                       } );
+
+                console.log("got plans");
+                       }, (err) => {
+                console.log("getting plans failed "+ err);
+                });
+  }
+
 
   planCreate() {
     this.showLoader();
@@ -79,6 +121,38 @@ export class BalancesPage {
                 this.loading.dismiss();
                                         console.log("not allowed"+ err);
                                });
+  }
+
+  getChargingBalance() {
+
+   this.couponService.getChargingBalance().then((result) => {
+                this.chargingdata = result;
+                                        console.log("plan created");
+                                }, (err) => {
+                                        console.log("not allowed"+ err);
+               });
+
+  }
+  
+  getIncomeBalance() {
+
+   this.bitcoinService.getBalances(this.plandata.vendoraddress).then((result) => {
+                this.plandata.balance = result;
+                                        console.log("plan created");
+                                }, (err) => {
+                                        console.log("not allowed"+ err);
+               });
+
+  }
+  getFeesBalance() {
+
+   this.couponService.getFeesBalance().then((result) => {
+                this.feesdata = result;
+                                        console.log("plan created");
+                                }, (err) => {
+                                        console.log("not allowed"+ err);
+               });
+
   }
 
  activatePlan(plan){

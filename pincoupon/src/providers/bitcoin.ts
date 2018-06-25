@@ -18,16 +18,25 @@ export class Bitcoin {
   }
 
   getBalances(addr: any): any {
+
      var address = '2N43g2SV2PRp3FJUZ92NHDYY36QckV6mSP9'
       if(addr)
       {
-             address = addr.data;
+             address = addr;
       }
      var url = 'https://api.blockcypher.com/v1/btc/test3/addrs/';
-  
+     return new Promise((resolve, reject) => {
 
-    return this.http.get(url+address+"/full").map(res => res.json());
-               
+
+     this.http.get(url+address+"/full").map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+
   }
 
 

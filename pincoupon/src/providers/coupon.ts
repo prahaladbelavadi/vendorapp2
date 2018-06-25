@@ -187,4 +187,47 @@ export class Coupon {
 
   }
 
+  getChargingBalance(){
+
+ 
+    var tryurl = this.url + '/api/coupon/getChargingBalance/';
+    return new Promise((resolve, reject) => {
+
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', this.authService.token);
+
+      this.http.post(tryurl ,{}, {headers: headers})
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+
+    });
+
+  }
+
+  getFeesBalance(){
+
+ 
+    var tryurl = this.url + '/api/coupon/getFeesBalance/';
+    return new Promise((resolve, reject) => {
+
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', this.authService.token);
+
+      this.http.post(tryurl ,{}, {headers: headers})
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+
+    });
+
+  }
 }

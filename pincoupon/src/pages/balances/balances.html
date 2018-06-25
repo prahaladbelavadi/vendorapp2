@@ -21,27 +21,44 @@
 
   <ion-list  inset padding>
         <ion-item>
-            <ion-label > Balance of income address: </ion-label>
-            <button clear item-right ion-button>Get income address balance  </button>
+                    <ion-label>Coupon plan </ion-label>
+                    <ion-select [(ngModel)]="plandata.vendoraddress">
+                        <ion-option *ngFor="let todo of availablePlans"
+                        value={{todo.vendoraddress}}
+                        > {{todo.planname}}
+                        </ion-option>
+                    </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label > Income address: {{plandata.vendoraddress}}</ion-label>
         </ion-item>
         <ion-item>
-            <ion-input type="text"  [(ngModel)]="plandata.vendorincomeaddress" placeholder="Amount to withdraw "></ion-input>
-            <button  item-right ion-button>Withdraw income </button>
+            <ion-label > Income address balance: {{plandata.balance.balance}}</ion-label>
+            <button  item-right ion-button (click)="getIncomeBalance()">Get balance </button>
         </ion-item>
         <ion-item>
-            <ion-label > Balance of fees address: </ion-label>
-            <button clear item-right ion-button>Get fees balance  </button>
+            <ion-label > Fees address: {{ feesdata.address}} </ion-label>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label > Balance of fees = {{ feesdata.balance }}</ion-label>
         </ion-item>
         <ion-item>
-            <ion-input type="text"  [(ngModel)]="plandata.vendorincomeaddress" placeholder="Amount to add to fees address "></ion-input>
+            <ion-label > Fees to topup</ion-label>
+            <ion-input type="text"  [(ngModel)]="feesamount" placeholder="Amount to add to fees address "></ion-input>
             <button  item-right ion-button>Topup fees address </button>
         </ion-item>
         <ion-item>
-            <ion-label > Balance of coupon charging address: </ion-label>
-            <button clear item-right ion-button>Get coupon charging balance  </button>
+            <ion-label > Charging address: {{chargingdata.address}}  </ion-label>
         </ion-item>
         <ion-item>
-            <ion-input type="text"  [(ngModel)]="plandata.vendorincomeaddress" placeholder="Amount to charge "></ion-input>
+            <ion-label > Balance of charging address: {{chargingdata.balance}} </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label > Charging to topup</ion-label>
+            <ion-input type="text"  [(ngModel)]="chargingamount" placeholder="Amount to charge "></ion-input>
             <button  item-right ion-button>Topup </button>
         </ion-item>
         <ion-item>
