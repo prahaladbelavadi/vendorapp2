@@ -33,6 +33,12 @@ export class CouponRedeemPage {
             couponid: ''
        };
 
+       this.balance = {
+            address: '',
+            balance: '',
+            unconfirmed_balance: ''
+       };
+
        this.redeemdata = {
             couponpin: '',
             couponmetadata: '',
@@ -73,9 +79,11 @@ export class CouponRedeemPage {
     this.showLoader();
 
 
-   this.couponService.getCoupon(this.coupondata.couponid).then((result) => {
+   this.couponService.getCoupon(this.coupondata.couponid).then((result: any) => {
                 this.loading.dismiss();
-                this.coupon = result;
+//                alert(JSON.stringify(result));
+                this.coupondata = result;
+    this.coupondata.couponaddress = '2N5ZyMz5xmt47znM9CCKnrLbXmymGLknus9' ;
                         console.log("coupon retrieved");
                                 }, (err) => {
                 this.loading.dismiss();
@@ -106,8 +114,9 @@ export class CouponRedeemPage {
 
     this.showLoader();
 
-
-    this.couponService.getcouponBalance(this.coupondata).then((result) => {
+    this.coupondata.couponaddress = '2N5ZyMz5xmt47znM9CCKnrLbXmymGLknus9' ;
+    // AX_03138A00F
+    this.couponService.getCouponBalance(this.coupondata).then((result) => {
 
       this.loading.dismiss();
       this.balance = result;

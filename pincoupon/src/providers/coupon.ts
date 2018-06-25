@@ -77,11 +77,10 @@ export class Coupon {
 
   }
   
-  getcouponBalance(coupondata){
+  getCouponBalance(coupondata){
 
-    var couponid =1;
 
-    var tryurl = this.url + '/api/coupon/balance/' + couponid;
+    var tryurl = this.url + '/api/coupon/getCouponBalance/';
 
     return new Promise((resolve, reject) => {
 

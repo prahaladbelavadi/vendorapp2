@@ -150,7 +150,7 @@ export class CouponIssuePage {
 
    var vendorid = 10;
 
-   this.managerService.getAvailablePlans(vendorid).then((result: []) => {
+   this.managerService.getAvailablePlans(vendorid).then((result: Array<any>) => {
                 this.availablePlans = result.map(function(x) {
 
                        var p = JSON.parse(x.serverdata);
@@ -227,7 +227,7 @@ export class CouponIssuePage {
         couponid : 1
     };
 
-    this.couponService.getcouponBalance(coupondata).then((result) => {
+    this.couponService.getCouponBalance(coupondata).then((result) => {
 
       this.loading.dismiss();
       this.balance = result;
