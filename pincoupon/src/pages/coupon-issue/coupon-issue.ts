@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Coupon } from '../../providers/coupon';
 import { Bitcoin } from '../../providers/bitcoin';
-import { Manager } from '../../providers/manager';
+import { Planmanager } from '../../providers/planmanager';
 
 /**
  * Generated class for the CouponIssuePage page.
@@ -28,7 +28,7 @@ export class CouponIssuePage {
   availableSchemes: any;
 
   constructor(public navCtrl: NavController, public couponService: Coupon, 
-              public managerService: Manager,
+              public managerService: Planmanager,
               public bitcoinService: Bitcoin,
               public loadingCtrl: LoadingController,
               public navParams: NavParams) {

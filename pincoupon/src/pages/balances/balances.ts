@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
-import { Manager } from '../../providers/manager';
+import { Planmanager } from '../../providers/planmanager';
 import { Coupon } from '../../providers/coupon';
 import { Bitcoin } from '../../providers/bitcoin';
 
@@ -30,7 +30,7 @@ export class BalancesPage {
   plandata : any;
 
   constructor(public navCtrl: NavController, 
-              public planService: Manager,
+              public planService: Planmanager,
               public couponService: Coupon,
               public bitcoinService: Bitcoin,
               public loadingCtrl: LoadingController,

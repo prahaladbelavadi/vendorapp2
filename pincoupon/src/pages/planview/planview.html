@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
- <ion-navbar color="primary">
+ <ion-navbar >
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -22,14 +22,14 @@
   Plan id : {{plan.planid}}
 </ion-item>
 <ion-item>
-  Percentage income : {{plan.vendorpercentagefees}}
+  Percentage income : {{plan.vendorpercentagefees}} % of transaction
 </ion-item>
 <ion-item>
-  Fixed income : {{plan.vendorfixedfees}}
+  Fixed income : {{plan.vendorfixedfees}} units per transaction
 </ion-item>
 <ion-item>
   Vendor income address for plan: {{plan.vendoraddress}}
-  <button item-right ion-button color="primary" (click)="getBalance()">Check balance </button>
+  <button item-right ion-button class="colorbutton" (click)="getBalance()">Check balance </button>
 </ion-item>
 
         <ion-item *ngIf="balance != ''">

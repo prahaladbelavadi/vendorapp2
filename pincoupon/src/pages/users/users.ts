@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
-import { Manager } from '../../providers/manager';
+import { Planmanager } from '../../providers/planmanager';
 
 
 
@@ -21,7 +21,7 @@ export class UsersPage {
   loading: any;
   relations: any;
 
-  constructor(public navCtrl: NavController,  public relationService: Manager, 
+  constructor(public navCtrl: NavController,  public relationService: Planmanager, 
               public loadingCtrl: LoadingController,
               public navParams: NavParams) {
   }

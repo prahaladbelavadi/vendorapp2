@@ -10,7 +10,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
 import { Todos } from '../providers/todos';
-import { Manager } from '../providers/manager';
+import { Planmanager } from '../providers/planmanager';
 import { Coupon } from '../providers/coupon';
 import { Auth } from '../providers/auth';
 import { Bitcoin } from '../providers/bitcoin';
@@ -63,7 +63,7 @@ import { CouponviewPageModule } from '../pages/couponview/couponview.module';
     StatusBar,
     SplashScreen,
     Todos, 
-    Manager, 
+    Planmanager, 
     Coupon, 
     Bitcoin, 
     Auth,
