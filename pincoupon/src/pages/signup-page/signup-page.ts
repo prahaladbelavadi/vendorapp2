@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { Auth } from '../../providers/auth';
 import { HomePage } from '../home/home';
+import { environment } from '../../config/environment';
+
+let termsurl = environment.termsurl;
 
 @Component({
   selector: 'signup-page',
@@ -13,9 +16,11 @@ export class SignupPage {
   email: string;
   password: string;
   loading : any;
+  termsurl : any;
 
   constructor(public navCtrl: NavController, public authService: Auth, public loadingCtrl: LoadingController) {
 
+     this.termsurl = termsurl;
   }
 
   ionViewDidLoad() {
