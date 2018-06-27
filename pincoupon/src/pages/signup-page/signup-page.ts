@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController, NavController, LoadingController } from 'ionic-angular';
 import { Auth } from '../../providers/auth';
+import { Popservice } from '../../providers/popservice';
 import { HomePage } from '../home/home';
 import { environment } from '../../config/environment';
 
@@ -21,7 +22,7 @@ export class SignupPage {
 
   constructor(public navCtrl: NavController, 
 		public authService: Auth, 
-		public alertCtrl: AlertController, 
+		public alertCtrl: Popservice, 
 		public loadingCtrl: LoadingController) {
 
      this.termsurl = termsurl;
@@ -31,14 +32,6 @@ export class SignupPage {
 
   }
  
-  presentAlert(msg) {
-  let alert = this.alertCtrl.create({
-    title: 'Message',
-    subTitle: msg,
-    buttons: ['OK']
-  });
-  alert.present();
-  }
 
 
   register(){
@@ -59,7 +52,7 @@ export class SignupPage {
   	}, (err) => {
                 
   		this.loading.dismiss();
-                this.presentAlert(JSON.parse(err._body).error);
+                this.alertCtrl.presentAlert(JSON.parse(err._body).error);
   	});
 
   }

@@ -43,7 +43,7 @@ export class CouponviewPage {
 
   getBalance() {
     this.bitcoinService
-      .getBalances(this.coupon.couponaddress).subscribe(posts  => {
+      .getBalances(this.coupon.couponaddress).then(posts  => {
       this.balance = posts;
     }, error => {
         console.log(error);

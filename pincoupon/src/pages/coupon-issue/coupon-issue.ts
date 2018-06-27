@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Coupon } from '../../providers/coupon';
 import { Bitcoin } from '../../providers/bitcoin';
+import { Popservice } from '../../providers/popservice';
+
 import { Planmanager } from '../../providers/planmanager';
 
 /**
@@ -31,6 +33,7 @@ export class CouponIssuePage {
               public managerService: Planmanager,
               public bitcoinService: Bitcoin,
               public loadingCtrl: LoadingController,
+              public alertCtrl: Popservice,
               public navParams: NavParams) {
 
     this.coupondata = {
@@ -112,6 +115,7 @@ export class CouponIssuePage {
                                         console.log("coupon created");
                                 }, (err) => {
                 this.loading.dismiss();
+ 		this.alertCtrl.presentAlert(JSON.parse(err._body).error);
                                         console.log("not allowed"+ err);
                                 });
   }

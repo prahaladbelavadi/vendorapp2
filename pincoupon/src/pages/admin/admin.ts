@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { Planmanager } from '../../providers/planmanager';
+import { Popservice } from '../../providers/popservice';
 
 
 /**
@@ -27,6 +28,7 @@ export class AdminPage {
   constructor(public navCtrl: NavController, 
               public planService: Planmanager,
               public loadingCtrl: LoadingController,
+ 	      public alertCtrl: Popservice,
 	      public navParams: NavParams) {
 
        this.availableSchemes = [];
@@ -76,6 +78,7 @@ export class AdminPage {
                                         console.log("plan created");
                                 }, (err) => {
                 this.loading.dismiss();
+                 this.alertCtrl.presentAlert(JSON.parse(err._body).error);
                                         console.log("not allowed"+ err);
                                 });
   }
