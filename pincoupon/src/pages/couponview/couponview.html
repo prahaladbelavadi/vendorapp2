@@ -28,12 +28,10 @@
 </ion-item>
 <ion-item>
   Coupon address : {{coupon.couponaddress}}
-</ion-item>
-<ion-item>
   <button item-right ion-button class="colorbutton" (click)="getBalance()">Check balance </button>
 </ion-item>
         <ion-item *ngIf="balance != ''">
-           Balance: {{balance.balance}}
+           Coupon balance: {{balance.balance}}
            unconfirmed_n_tx : {{ balance.unconfirmed_n_tx }}
            unconfirmed_balance : {{ balance.unconfirmed_balance }}
 
