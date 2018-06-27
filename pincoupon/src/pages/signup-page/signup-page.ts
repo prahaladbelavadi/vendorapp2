@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { AlertController, NavController, LoadingController } from 'ionic-angular';
 import { Auth } from '../../providers/auth';
 import { HomePage } from '../home/home';
 import { environment } from '../../config/environment';
@@ -17,8 +17,12 @@ export class SignupPage {
   password: string;
   loading : any;
   termsurl : any;
+  registrationcode: string;
 
-  constructor(public navCtrl: NavController, public authService: Auth, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, 
+		public authService: Auth, 
+		public alertCtrl: AlertController, 
+		public loadingCtrl: LoadingController) {
 
      this.termsurl = termsurl;
   }
@@ -26,6 +30,16 @@ export class SignupPage {
   ionViewDidLoad() {
 
   }
+ 
+  presentAlert(msg) {
+  let alert = this.alertCtrl.create({
+    title: 'Message',
+    subTitle: msg,
+    buttons: ['OK']
+  });
+  alert.present();
+  }
+
 
   register(){
 
@@ -34,7 +48,8 @@ export class SignupPage {
   	let details = {
   	    email: this.email,
   	    password: this.password,
-  	    role: this.role
+  	    role: this.role,
+            registrationcode: this.registrationcode
   	};
 
   	this.authService.createAccount(details).then((result) => {
@@ -42,7 +57,9 @@ export class SignupPage {
       console.log(result);
       this.navCtrl.setRoot(HomePage);
   	}, (err) => {
+                
   		this.loading.dismiss();
+                this.presentAlert(JSON.parse(err._body).error);
   	});
 
   }
