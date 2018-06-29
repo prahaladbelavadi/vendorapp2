@@ -21,10 +21,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { CouponIssuePageModule } from '../pages/coupon-issue/coupon-issue.module';
+import { PaymentIssuePageModule } from '../pages/payment-issue/payment-issue.module';
 import { PlansPageModule } from '../pages/plans/plans.module';
 import { CouponRedeemPageModule } from '../pages/coupon-redeem/coupon-redeem.module';
+import { PaymentAcceptPageModule } from '../pages/payment-accept/payment-accept.module';
 import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module';
 import { CouponsPageModule } from '../pages/coupons/coupons.module';
+import { PaymentsmadePageModule } from '../pages/paymentsmade/paymentsmade.module';
+import { PaymentsreceivedPageModule } from '../pages/paymentsreceived/paymentsreceived.module';
 import { BalancesPageModule } from '../pages/balances/balances.module';
 import { PlanviewPageModule } from '../pages/planview/planview.module';
 import { CouponviewPageModule } from '../pages/couponview/couponview.module';
@@ -47,8 +51,12 @@ import { CouponviewPageModule } from '../pages/couponview/couponview.module';
     CouponviewPageModule,
     BalancesPageModule,
     CouponIssuePageModule,
+    PaymentIssuePageModule,
     CouponsPageModule,
+    PaymentsmadePageModule,
+    PaymentsreceivedPageModule,
     CouponRedeemPageModule,
+    PaymentAcceptPageModule,
     CouponAdminPageModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()

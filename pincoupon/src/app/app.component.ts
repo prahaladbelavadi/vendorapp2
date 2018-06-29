@@ -8,9 +8,13 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { BalancesPage } from '../pages/balances/balances';
 import { CouponsPage } from '../pages/coupons/coupons';
+import { PaymentsmadePage } from '../pages/paymentsmade/paymentsmade';
+import { PaymentsreceivedPage } from '../pages/paymentsreceived/paymentsreceived';
 import { PlansPage } from '../pages/plans/plans';
 import { CouponIssuePage } from '../pages/coupon-issue/coupon-issue';
+import { PaymentIssuePage } from '../pages/payment-issue/payment-issue';
 import { CouponRedeemPage } from '../pages/coupon-redeem/coupon-redeem';
+import { PaymentAcceptPage } from '../pages/payment-accept/payment-accept';
 import { CouponAdminPage } from '../pages/coupon-admin/coupon-admin';
 import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
@@ -30,18 +34,39 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
+
+/*
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'Signup', component: SignupPage, icon: 'home' },
       { title: 'Login', component: LoginPage, icon: 'home' },
       { title: 'Divider', component: '' , icon: 'none' },
       { title: 'Coupon Server', component: CouponIssuePage, icon: 'contact' },
-      { title: 'Client Web/Mobile', component: CouponRedeemPage, icon: 'contact' },
-      { title: 'Client Serverless', component: CouponRedeemPage, icon: 'contact' },
+      { title: 'Receive payment Web/Mobile', component: CouponRedeemPage, icon: 'contact' },
+      { title: 'Receive payment Serverless', component: CouponRedeemPage, icon: 'contact' },
       { title: 'Divider', component: '', icon: 'none' },
       { title: 'Vendor Admin ', component: CouponAdminPage, icon: 'contact' },
       { title: 'Vendor Plans ', component: PlansPage, icon: 'contact' },
       { title: 'Vendor Coupons ', component: CouponsPage, icon: 'contact' },
+      { title: 'Vendor Balances ', component: BalancesPage, icon: 'contact' },
+      { title: 'Divider', component: '', icon: 'none' }
+    ];
+*/
+
+    this.pages = [
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Signup', component: SignupPage, icon: 'home' },
+      { title: 'Login', component: LoginPage, icon: 'home' },
+      { title: 'Divider', component: '' , icon: 'none' },
+      { title: 'Payment Issue', component: PaymentIssuePage, icon: 'contact' },
+      { title: 'Payments made', component: PaymentsmadePage, icon: 'contact' },
+      { title: 'Divider', component: '' , icon: 'none' },
+      { title: 'Client Web/Mobile', component: PaymentAcceptPage, icon: 'contact' },
+      { title: 'Client Serverless', component: PaymentAcceptPage, icon: 'contact' },
+      { title: 'Received payments ', component: PaymentsreceivedPage, icon: 'contact' },
+      { title: 'Divider', component: '', icon: 'none' },
+      { title: 'Vendor Admin ', component: CouponAdminPage, icon: 'contact' },
+      { title: 'Vendor Plans ', component: PlansPage, icon: 'contact' },
       { title: 'Vendor Balances ', component: BalancesPage, icon: 'contact' },
       { title: 'Divider', component: '', icon: 'none' }
     ];
