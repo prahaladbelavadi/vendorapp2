@@ -24,11 +24,11 @@
         </ion-item-divider>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="paymentdata.paymentid" placeholder="Coupon id to redeem"></ion-input>
+            <ion-input type="text" [(ngModel)]="paymentdata.paymentid" placeholder="Payment id to accept"></ion-input>
             <button item-right ion-button (click)="getCoupon()" class="colorbutton" >Retreive payment </button>
         </ion-item>
         <ion-item *ngIf="paymentdata.paymentaddress">
-            <ion-label > Coupon address: {{paymentdata.paymentaddress}} </ion-label> 
+            <ion-label > Payment address: {{paymentdata.paymentaddress}} </ion-label> 
         </ion-item>
         <ion-item>
             <button item-left ion-button class="colorbutton" (click)="getCouponBalance()">Balance of payment </button>
@@ -41,13 +41,13 @@
             <ion-label > Unconformed balance of payment :  {{balance.unconfirmed_balance }} </ion-label> 
         </ion-item>
         <ion-item-divider class="roundedge">
-            <p> Enter PIN to redeem below </p>
+            <p> Enter PIN to accept below </p>
         </ion-item-divider>
         <ion-item>
-            <ion-input type="text" [(ngModel)]="redeemdata.paymentpin" placeholder="Enter PIN to unlock"></ion-input>
+            <ion-input type="text" [(ngModel)]="acceptdata.paymentpin" placeholder="Enter PIN to unlock"></ion-input>
         </ion-item>
         <ion-item>
-            <button item-left ion-button class="colorbutton" (click)="redeemCoupon()">Redeem payment </button>
+            <button item-left ion-button class="colorbutton" (click)="acceptPayment()">Accept payment </button>
 
         </ion-item>
    </ion-list>

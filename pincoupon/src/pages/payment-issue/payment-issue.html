@@ -22,10 +22,10 @@
         </ion-item-divider>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="paymentdata.paymentname" placeholder="Enter payment name "></ion-input>
+            <ion-input type="text" [(ngModel)]="paymentdata.paymentname" placeholder="Enter payee name "></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="text" [(ngModel)]="paymentdata.paymentbrand" placeholder="Enter payment brand "></ion-input>
+            <ion-input type="text" [(ngModel)]="paymentdata.paymentbrand" placeholder="Enter payment purpose "></ion-input>
         </ion-item>
         <ion-item>
                     <ion-label>Coupon plan </ion-label>
@@ -43,8 +43,15 @@
         Create payment below
         </ion-item-divider>
         <ion-item>
-            <ion-textarea type="text" [(ngModel)]="paymentdata.paymentid" placeholder="Coupon id"></ion-textarea>
+            <ion-textarea type="text" [(ngModel)]="paymentdata.paymentid" placeholder="Payment id"></ion-textarea>
             <button item-right ion-button class="colorbutton" (click)="createCouponId()" >Create payment id</button>
+        </ion-item>
+        <ion-item>
+            <ion-textarea type="text" [(ngModel)]="paymentdata.paymentkey" placeholder="Payment key"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-input type="number" [(ngModel)]="paymentdata.paymentaccesskey" placeholder="Access key "></ion-input>
+            <button item-right ion-button class="colorbutton" (click)="createAccesskey()">Create access key</button>
         </ion-item>
         <ion-item>
             <ion-input type="number" [(ngModel)]="paymentdata.paymentpin" placeholder="Enter PIN "></ion-input>
@@ -64,17 +71,16 @@
         <ion-item>
 
             <button item-left ion-button class="colorbutton" (click)="createCoupon()">Create payment </button>
-            <a item-right ion-button class="colorbutton" href="">Coupon download  
-                    <ion-label><ion-icon name="download"></ion-icon></ion-label>
+            <a item-right ion-button class="colorbutton" href="">Send server less  
+                    <ion-label></ion-label>
+             </a>
+        </ion-item>
+        <ion-item>
+            <a item-right ion-button class="colorbutton" href="">Send by email  
+                    <ion-label></ion-label>
              </a>
         </ion-item>
 
-        <ion-item>
-            <button item-left ion-button class="colorbutton" (click)="activateCoupon()">Activate </button>
-        </ion-item>
-        <ion-item>
-            <button item-left class="colorbutton" ion-button (click)="getCouponBalance">Verify balance in payment </button>
-        </ion-item>
    </ion-list>
 
 </ion-content>

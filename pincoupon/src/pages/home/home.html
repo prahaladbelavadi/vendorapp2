@@ -5,7 +5,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
   <ion-title>
-    Blockchain coupon management system
+    Blockchain based decoupled payment system
   </ion-title>
   <ion-buttons end>
     <button ion-button icon-only (click)="addTodo()"><ion-icon name="add"></ion-icon></button>
@@ -19,7 +19,24 @@
 <ion-content>
 
   <ion-list no-lines>
+      <ion-item>
+      </ion-item>
+   <ion-item-divider class="roundedge">
+        Highlights
+   </ion-item-divider>
 
+      <ion-item>
+ <button item-left ion-button class="colorbutton"  > We charge 2% on transaction </button>
+ <button item-right ion-button class="colorbutton"  > Paypal charges 6% on transaction  </button>
+
+      </ion-item>
+      <ion-item>
+ <button item-left ion-button class="colorbutton"  > 5$/month subscription </button>
+      </ion-item>
+      <ion-item>
+ <button item-left ion-button class="colorbutton"  > Money sent as code and PIN  </button>
+ <button item-right ion-button class="colorbutton"  > Money received as code and PIN  </button>
+      </ion-item>
     <ion-item-sliding *ngFor="let todo of todos">
 
       <ion-item>

@@ -16,7 +16,7 @@ export class Payment {
 
   }
 
-  getpayments(){
+  getPayments(){
 
     var tryurl = this.url + '/api/payment/getpayments' 
     return new Promise((resolve, reject) => {
@@ -35,7 +35,7 @@ export class Payment {
 
   }
 
-  getpayment(paymentid ){
+  getPayment(paymentid ){
 
 
     var tryurl = this.url + '/api/payment/getpayment/' + paymentid;
@@ -55,7 +55,7 @@ export class Payment {
 
   }
 
-  createpayment(paymentdata){
+  createPayment(paymentdata){
 
     var tryurl = this.url + '/api/payment/createpayment/';
 
@@ -77,7 +77,7 @@ export class Payment {
 
   }
   
-  getpaymentBalance(paymentdata){
+  getPaymentBalance(paymentdata){
 
 
     var tryurl = this.url + '/api/payment/getpaymentBalance/';
@@ -100,7 +100,7 @@ export class Payment {
 
   }
 
-  deletepayment(paymentid){
+  deletePayment(paymentid){
 
     var tryurl = this.url + '/api/payment/delete/' + paymentid;
 
@@ -120,7 +120,7 @@ export class Payment {
   }
 
 
-  redeempayment(paymentdata, redeemdata){
+  acceptPayment(paymentdata, redeemdata){
     var paymentid =1;
 
     var tryurl = this.url + '/api/payment/redeem/' + paymentid;
@@ -165,7 +165,7 @@ export class Payment {
   	});
 
   }
-   pauseActivatepayment(pauseactivate){
+   pauseActivatePayment(pauseactivate){
     var paymentid =1;
     var tryurl = this.url + '/api/payment/pauseactivate/' + paymentid;
 

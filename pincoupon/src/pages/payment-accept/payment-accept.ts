@@ -61,19 +61,6 @@ export class PaymentAcceptPage {
 
   }
   
-  validatePayment() {
-    this.showLoader();
-
-
-   this.paymentService.validatePayment(this.paymentdata).then((result) => {
-                this.loading.dismiss();
-                this.payment = result;
-                                        console.log("payment created");
-                                }, (err) => {
-                this.loading.dismiss();
-                                        console.log("not allowed"+ err);
-                                });
-  }
 
   getPayment() {
     this.showLoader();
