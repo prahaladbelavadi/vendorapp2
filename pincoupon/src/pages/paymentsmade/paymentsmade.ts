@@ -28,7 +28,7 @@ export class PaymentsmadePage {
 
   ionViewDidLoad(){
 
-    this.paymentService.getPayments().then((data) => {
+    this.paymentService.getPaymentsMade().then((data) => {
                   this.payments = data;
     }, (err) => {
         console.log("not allowed");
@@ -38,7 +38,7 @@ export class PaymentsmadePage {
 
   refresh () {
 
-    this.paymentService.getPayments().then((data) => {
+    this.paymentService.getPaymentsMade().then((data) => {
                   this.payments = data;
     }, (err) => {
         console.log("not allowed");

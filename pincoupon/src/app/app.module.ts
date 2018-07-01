@@ -31,6 +31,7 @@ import { CouponsPageModule } from '../pages/coupons/coupons.module';
 import { PaymentsmadePageModule } from '../pages/paymentsmade/paymentsmade.module';
 import { PaymentsreceivedPageModule } from '../pages/paymentsreceived/paymentsreceived.module';
 import { BalancesPageModule } from '../pages/balances/balances.module';
+import { SerlessettingPageModule } from '../pages/serlessetting/serlessetting.module';
 import { PlanviewPageModule } from '../pages/planview/planview.module';
 import { CouponviewPageModule } from '../pages/couponview/couponview.module';
 
@@ -51,6 +52,7 @@ import { CouponviewPageModule } from '../pages/couponview/couponview.module';
     PlanviewPageModule,
     CouponviewPageModule,
     BalancesPageModule,
+    SerlessettingPageModule,
     CouponIssuePageModule,
     PaymentIssuePageModule,
     CouponsPageModule,

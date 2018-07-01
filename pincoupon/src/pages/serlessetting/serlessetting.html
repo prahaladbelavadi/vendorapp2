@@ -1,0 +1,60 @@
+
+<!--
+  Generated template for the DroneLockPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+ <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  <ion-title>
+    Server less client setting 
+  </ion-title>
+ </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list  inset padding>
+        <!--ion-item>
+            <ion-label > Select fees = {{ serverless.fees }}</ion-label>
+                    <ion-select [(ngModel)]="serverless.fees">
+                        <ion-option *ngFor="let todo of feeslevel"
+                        value={{todo.levelfees}}
+                        > {{todo.levelname}}
+                        </ion-option>
+        </ion-item -->
+      <ion-item-divider class="roundedge" >
+            <p> For balance check, select plan </p>
+        </ion-item-divider>
+
+        <ion-item>
+                    <ion-label>Wallet address </ion-label>
+                    <ion-label> {{serverless.walletaddress}}
+                    </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-label > Address balance: {{serverless.balance}}</ion-label>
+            <button  item-right ion-button class="colorbutton" (click)="getIncomeBalance()">Get balance </button>
+        </ion-item>
+        <ion-item>
+            <ion-label > Contract id : {{ serverless.contractid}} status: {{serverless.status}} </ion-label>
+            <button  class="colorbutton" item-right ion-button> refresh </button>
+        </ion-item>
+        <ion-item>
+            <ion-label > Contract status: {{serverless.status}} </ion-label>
+
+        </ion-item>
+
+        <ion-item>
+            <button  class="colorbutton" item-right ion-button> Save wallet </button>
+            <button  class="colorbutton" item-right ion-button> Restore wallet </button>
+        </ion-item >
+   </ion-list>
+
+</ion-content>

@@ -66,7 +66,7 @@ export class PaymentAcceptPage {
     this.showLoader();
 
 
-   this.paymentService.getPayment(this.paymentdata.paymentid).then((result: any) => {
+   this.paymentService.getPaymentMade(this.paymentdata.paymentid).then((result: any) => {
                 this.loading.dismiss();
 //                alert(JSON.stringify(result));
                 this.paymentdata = result;

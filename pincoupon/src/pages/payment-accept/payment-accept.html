@@ -25,14 +25,14 @@
 
         <ion-item>
             <ion-input type="text" [(ngModel)]="paymentdata.paymentid" placeholder="Payment id to accept"></ion-input>
-            <button item-right ion-button (click)="getCoupon()" class="colorbutton" >Retreive payment </button>
+            <button item-right ion-button (click)="getPayment()" class="colorbutton" >Retreive payment </button>
         </ion-item>
         <ion-item *ngIf="paymentdata.paymentaddress">
             <ion-label > Payment address: {{paymentdata.paymentaddress}} </ion-label> 
         </ion-item>
         <ion-item>
-            <button item-left ion-button class="colorbutton" (click)="getCouponBalance()">Balance of payment </button>
-            <button item-right ion-button (click)="validateCoupon()" class="colorbutton" >Check validity of payment </button>
+            <button item-left ion-button class="colorbutton" (click)="getPaymentBalance()">Balance of payment </button>
+            <button item-right ion-button (click)="validatePayment()" class="colorbutton" >Check validity of payment </button>
         </ion-item>
         <ion-item>
             <ion-label > Balance of payment : {{balance.balance  }} </ion-label> 

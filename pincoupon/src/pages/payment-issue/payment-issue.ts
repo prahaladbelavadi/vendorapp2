@@ -27,6 +27,8 @@ export class PaymentIssuePage {
   loading: any;
   paymentdata: any;
   availablePlans: any;
+  payees: any;
+  payee: any;
   availableSchemes: any;
 
   constructor(public navCtrl: NavController, public paymentService: Payment, 
@@ -40,11 +42,9 @@ export class PaymentIssuePage {
             paymentid: '',
             paymentkey: '',
             vendorid: '',
-            paymentname: '',
-            paymentbrand: '',
             paymentplan: '',
-            paymentplanid: '',
-            paymentscheme: '',
+            payeename: '',
+            paymentaccesskey: '',
 	    paymentvalue: '',
             paymentpin: ''
     };
@@ -53,6 +53,10 @@ export class PaymentIssuePage {
     this.balance = '';
     this.getAvailablePlans();
     this.getAvailableSchemes();
+    this.payees = [
+	{name: 'Ramu', phone: '4567878990'},
+	{name: 'Raju', phone: '9897878990'}
+    ];
   }
 
   ionViewDidLoad() {
@@ -70,9 +74,9 @@ export class PaymentIssuePage {
   }
 
   checkFunds() {
-    var fundaddress = '2N43g2SV2PRp3FJUZ92NHDYY36QckV6mSP9';
+    var fundaddress = '2N5ZyMz5xmt47znM9CCKnrLbXmymGLknus9';
     this.bitcoinService
-      .getBalances(fundaddress).subscribe(posts  => {
+      .getBalances(fundaddress).then(posts  => {
       this.balance = posts;
     }, error => {
         console.log(error);
@@ -84,6 +88,12 @@ export class PaymentIssuePage {
     var length = 5;
     this.paymentdata.paymentpin  = Math.random().toString().substr(2, length);
   }
+  createAccesskey()
+  {
+    var length = 10;
+    this.paymentdata.paymentaccesskey  = "AXS"+Math.random().toString(36).substr(2, length).toUpperCase();
+  }
+  
   
   createPaymentId()
   {
@@ -105,9 +115,9 @@ export class PaymentIssuePage {
   createPayment() {
     this.showLoader();
 
-   var p1 = this.getplandata(this.paymentdata.paymentplanid);
-   this.paymentdata.paymentplan = JSON.stringify(p1);
-   this.paymentdata.vendorid = p1.vendorid;
+//   var p1 = this.getplandata(this.paymentdata.paymentplanid);
+   this.paymentdata.paymentplan = "JSON.stringify(p1)";
+   this.paymentdata.vendorid = "p1.vendorid";
 
    this.paymentService.createPayment(this.paymentdata).then((result) => {
                 this.loading.dismiss();
@@ -115,7 +125,7 @@ export class PaymentIssuePage {
                                         console.log("payment created");
                                 }, (err) => {
                 this.loading.dismiss();
- 		this.alertCtrl.presentAlert(JSON.parse(err._body).error);
+ 		//this.alertCtrl.presentAlert(JSON.parse(err._body).error);
                                         console.log("not allowed"+ err);
                                 });
   }
@@ -126,7 +136,7 @@ export class PaymentIssuePage {
    var paymentdata = {
         name: 'test'
    };
-   this.paymentService.getPayment(paymentdata).then((result) => {
+   this.paymentService.getPaymentMade(paymentdata).then((result) => {
                 this.loading.dismiss();
                 this.payment = result;
                                         console.log("payment created");

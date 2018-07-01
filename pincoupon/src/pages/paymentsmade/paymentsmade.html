@@ -16,10 +16,10 @@
 
   <ion-list inset  padding>
 
-    <ion-item-sliding *ngFor="let todo of coupons">
+    <ion-item-sliding *ngFor="let todo of payments">
 
       <ion-item>
-        payment-id: {{todo.couponid}}
+        payment-id: {{todo.paymentmadeid}}
         <button ion-button item-right class="colorbutton" (click)="showpayment(todo)">
           Select
         </button>

@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { BalancesPage } from '../pages/balances/balances';
+import { SerlessettingPage } from '../pages/serlessetting/serlessetting';
 import { CouponsPage } from '../pages/coupons/coupons';
 import { PaymentsmadePage } from '../pages/paymentsmade/paymentsmade';
 import { PaymentsreceivedPage } from '../pages/paymentsreceived/paymentsreceived';
@@ -44,6 +45,7 @@ export class MyApp {
       { title: 'Coupon Server', component: CouponIssuePage, icon: 'contact' },
       { title: 'Receive payment Web/Mobile', component: CouponRedeemPage, icon: 'contact' },
       { title: 'Receive payment Serverless', component: CouponRedeemPage, icon: 'contact' },
+      { title: 'Divider', component: '' , icon: 'none' },
       { title: 'Divider', component: '', icon: 'none' },
       { title: 'Vendor Admin ', component: CouponAdminPage, icon: 'contact' },
       { title: 'Vendor Plans ', component: PlansPage, icon: 'contact' },
@@ -63,6 +65,7 @@ export class MyApp {
       { title: 'Divider', component: '' , icon: 'none' },
       { title: 'Client Web/Mobile', component: PaymentAcceptPage, icon: 'contact' },
       { title: 'Client Serverless', component: PaymentAcceptPage, icon: 'contact' },
+      { title: 'Serverless setting', component: SerlessettingPage, icon: 'contact' },
       { title: 'Received payments ', component: PaymentsreceivedPage, icon: 'contact' },
       { title: 'Divider', component: '', icon: 'none' },
       { title: 'Vendor Admin ', component: CouponAdminPage, icon: 'contact' },

@@ -16,9 +16,9 @@ export class Payment {
 
   }
 
-  getPayments(){
+  getPaymentsMade(){
 
-    var tryurl = this.url + '/api/payment/getpayments' 
+    var tryurl = this.url + '/api/paymentmade/getpayments' 
     return new Promise((resolve, reject) => {
 
       let headers = new Headers();
@@ -35,10 +35,28 @@ export class Payment {
 
   }
 
-  getPayment(paymentid ){
+  getPaymentsReceived(){
+
+    var tryurl = this.url + '/api/paymentreceived/getpayments' 
+    return new Promise((resolve, reject) => {
+
+      let headers = new Headers();
+      headers.append('Authorization', this.authService.token);
+
+      this.http.get(tryurl, {headers: headers})
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+  getPaymentMade(paymentid ){
 
 
-    var tryurl = this.url + '/api/payment/getpayment/' + paymentid;
+    var tryurl = this.url + '/api/paymentmade/getpayment/' + paymentid;
     return new Promise((resolve, reject) => {
 
       let headers = new Headers();
@@ -57,7 +75,7 @@ export class Payment {
 
   createPayment(paymentdata){
 
-    var tryurl = this.url + '/api/payment/createpayment/';
+    var tryurl = this.url + '/api/paymentmade/createpayment/';
 
     return new Promise((resolve, reject) => {
 
@@ -80,7 +98,7 @@ export class Payment {
   getPaymentBalance(paymentdata){
 
 
-    var tryurl = this.url + '/api/payment/getpaymentBalance/';
+    var tryurl = this.url + '/api/paymentmade/getpaymentBalance/';
 
     return new Promise((resolve, reject) => {
 
