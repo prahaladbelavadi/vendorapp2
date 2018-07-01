@@ -21,6 +21,7 @@ export class ServerlessSendPage {
   payment: any;
   balance: any;
   loading: any;
+  serverless: any;
   paymentdata: any;
   acceptstatus: any; 
   acceptdata: any;
@@ -31,6 +32,12 @@ export class ServerlessSendPage {
 
        this.paymentdata = {
             paymentid: ''
+       };
+
+       this.serverless = {
+            sendamount: '',
+            sendqrcode: '',
+            sendaddress: ''
        };
 
        this.balance = {
