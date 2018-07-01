@@ -20,7 +20,9 @@ export class ServerlessReceivePage {
   payments: any;
   payment: any;
   balance: any;
+  wallet: any;
   loading: any;
+  serverless: any;
   paymentdata: any;
   acceptstatus: any; 
   acceptdata: any;
@@ -33,7 +35,19 @@ export class ServerlessReceivePage {
             paymentid: ''
        };
 
+       this.serverless = {
+            receivedqrcode: '',
+            receivedpincode: '',
+            receivedaddress: '',
+            receivedamount: ''
+       };
+
        this.balance = {
+            address: '',
+            balance: '',
+            unconfirmed_balance: ''
+       };
+       this.wallet = {
             address: '',
             balance: '',
             unconfirmed_balance: ''
