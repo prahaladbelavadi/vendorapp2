@@ -26,6 +26,8 @@ import { PaymentIssuePageModule } from '../pages/payment-issue/payment-issue.mod
 import { PlansPageModule } from '../pages/plans/plans.module';
 import { CouponRedeemPageModule } from '../pages/coupon-redeem/coupon-redeem.module';
 import { PaymentAcceptPageModule } from '../pages/payment-accept/payment-accept.module';
+import { ServerlessSendPageModule } from '../pages/serverless-send/serverless-send.module';
+import { ServerlessReceivePageModule } from '../pages/serverless-receive/serverless-receive.module';
 import { CouponAdminPageModule } from '../pages/coupon-admin/coupon-admin.module';
 import { CouponsPageModule } from '../pages/coupons/coupons.module';
 import { PaymentsmadePageModule } from '../pages/paymentsmade/paymentsmade.module';
@@ -55,6 +57,8 @@ import { CouponviewPageModule } from '../pages/couponview/couponview.module';
     SerlessettingPageModule,
     CouponIssuePageModule,
     PaymentIssuePageModule,
+    ServerlessSendPageModule,
+    ServerlessReceivePageModule,
     CouponsPageModule,
     PaymentsmadePageModule,
     PaymentsreceivedPageModule,

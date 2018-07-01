@@ -16,6 +16,8 @@ import { CouponIssuePage } from '../pages/coupon-issue/coupon-issue';
 import { PaymentIssuePage } from '../pages/payment-issue/payment-issue';
 import { CouponRedeemPage } from '../pages/coupon-redeem/coupon-redeem';
 import { PaymentAcceptPage } from '../pages/payment-accept/payment-accept';
+import { ServerlessSendPage } from '../pages/serverless-send/serverless-send';
+import { ServerlessReceivePage } from '../pages/serverless-receive/serverless-receive';
 import { CouponAdminPage } from '../pages/coupon-admin/coupon-admin';
 import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
@@ -64,7 +66,8 @@ export class MyApp {
       { title: 'Payments made', component: PaymentsmadePage, icon: 'contact' },
       { title: 'Divider', component: '' , icon: 'none' },
       { title: 'Client Web/Mobile', component: PaymentAcceptPage, icon: 'contact' },
-      { title: 'Client Serverless', component: PaymentAcceptPage, icon: 'contact' },
+      { title: 'Serverless Send', component: ServerlessSendPage, icon: 'contact' },
+      { title: 'Serverless Receive', component: ServerlessReceivePage, icon: 'contact' },
       { title: 'Serverless setting', component: SerlessettingPage, icon: 'contact' },
       { title: 'Received payments ', component: PaymentsreceivedPage, icon: 'contact' },
       { title: 'Divider', component: '', icon: 'none' },
