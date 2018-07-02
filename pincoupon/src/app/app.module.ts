@@ -16,6 +16,7 @@ import { Auth } from '../providers/auth';
 import { Bitcoin } from '../providers/bitcoin';
 import { Popservice } from '../providers/popservice';
 import { Payment } from '../providers/payment';
+import { Serverless } from '../providers/serverless';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -81,6 +82,7 @@ import { CouponviewPageModule } from '../pages/couponview/couponview.module';
     Todos, 
     Planmanager, 
     Coupon, 
+    Serverless, 
     Bitcoin, 
     Payment, 
     Popservice, 

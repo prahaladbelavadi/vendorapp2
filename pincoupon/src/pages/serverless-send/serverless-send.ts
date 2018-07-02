@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Payment } from '../../providers/payment';
+import { Serverless } from '../../providers/serverless';
 
 /**
  * Generated class for the PaymentAcceptPage page.
@@ -28,6 +29,7 @@ export class ServerlessSendPage {
 
   constructor(public navCtrl: NavController, public paymentService: Payment, 
               public loadingCtrl: LoadingController,
+              public serverlessService: Serverless,
               public navParams: NavParams) {
 
        this.paymentdata = {
@@ -51,6 +53,7 @@ export class ServerlessSendPage {
             paymentmetadata: '',
             acceptaddress: ''
        };
+//       serverlessService.getCouponAddress();
 
   }
 
