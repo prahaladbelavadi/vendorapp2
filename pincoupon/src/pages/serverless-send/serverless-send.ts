@@ -53,7 +53,6 @@ export class ServerlessSendPage {
             paymentmetadata: '',
             acceptaddress: ''
        };
-//       serverlessService.getCouponAddress();
 
   }
 
@@ -125,6 +124,24 @@ export class ServerlessSendPage {
     });
   }
 
+  prepareToSend(){
+
+
+    this.serverlessService.prepareToSend(100);
+/*
+    this.showLoader();
+    this.serverlessService.getPaymentBalance(100).then((result) => {
+
+      this.loading.dismiss();
+      this.balance = result;
+
+
+    }, (err) => {
+      this.loading.dismiss();
+        console.log("not allowed");
+    });
+*/
+  }
 
 
   

@@ -25,7 +25,7 @@
 
         <ion-item>
             <ion-input type="text" [(ngModel)]="serverless.sendamount" placeholder="Amount to send      "></ion-input>
-            <button item-right ion-button (click)="getPayment()" class="colorbutton" >Prepare to send  </button>
+            <button item-right ion-button (click)="prepareToSend()" class="colorbutton" >Prepare to send  </button>
         </ion-item>
         <ion-item> <!-- *ngIf="serverless.sendqrcode" -->
             <ion-label > QR code to send: {{serverless.sendqrcode}} </ion-label> 

@@ -3,40 +3,113 @@ import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import { partner } from '../config/partner';
+import { contract } from '../config/contract';
+
 declare var foo;
+
+let partnerinfo = partner;
+let contractinfo = contract;
 
 @Injectable()
 export class Serverless {
 
+  activatingkeypair : any;
+
   constructor(public http: Http) {
 
-  var x = this.getCouponAddress();
-  alert(x);
+  var network = foo.bitcoin.networks.testnet;
+  foo.bitcoincontrol.serverlesslib.init(contractinfo, partnerinfo, network);
+
+
+
+
+ this.activatingkeypair = foo.bitcoin.ECPair.makeRandom({ network: network, rng: this.rng })
+
+
+
+
   }
   
+  rng () { return foo.Buffer.Buffer.from('zzzttyyzzzzzzzzzzzzzzzzzzzzzzzzz') }
+
   getCouponAddress()
   {
-  
+
   var couponstub = {
    couponhash: 1,
    couponpin: 2
   };
+
   var keyPair = foo.bitcoin.ECPair.makeRandom();
   var uidkey =  keyPair.getPublicKeyBuffer();
   var globalnetwork = foo.bitcoin.networks.testnet;
 
   var Pin = JSON.stringify(couponstub);
-  var Pinkey = Buffer.from(Pin);
+  var Pinkey = foo.Buffer.Buffer.from(Pin);
 
-   var docaddr = compositekeylib.getBufControlCodeAddress(Pinkey,
+   var docaddr = foo.bitcoincontrol.compositekeylib.getBufControlCodeAddress(Pinkey,
                 uidkey,
                 globalnetwork);
    console.log("docaddr = "+docaddr);
 
    return docaddr;
+
    }
 
+  getSendingSet()
+  {
+  
+  // size of key is taken as input, optional  
 
+  var moneydata = {
+   planid: 1,
+   vendorid: 1,
+   randompin: 2
+  };
+
+  var keyPair = foo.bitcoin.ECPair.makeRandom();
+  var uidkey =  keyPair.getPublicKeyBuffer();
+  var globalnetwork = foo.bitcoin.networks.testnet;
+
+
+   var docaddr = foo.bitcoincontrol.serverlesslib.doc1Upload(moneydata,
+                uidkey,
+                globalnetwork);
+   console.log("docaddr = "+docaddr);
+
+   var set = {
+      address: docaddr,
+      uidkey: uidkey,
+      moneydata: moneydata
+   };
+
+   return set;
+
+  }
+
+  prepareToSend(amount)
+  {
+    var addressset = this.getSendingSet();
+
+    var serverlesstype = 1;
+    var txpromise = foo.bitcoincontrol.serverlesslib.regularSendingFund(serverlesstype, amount, addressset.address, this.activatingkeypair); // -> popup for partner to send money, amount
+    txpromise.then(function(tx) {
+     console.log(tx.toHex());
+     foo.bitcoincontrol.serverlesslib.sendtx(tx).then(function(tx1) {
+
+     console.log("sending=", JSON.stringify(tx1));
+    }).catch (function(error){
+     console.log(error);
+    });
+    }).catch (function(error){
+     console.log(error);
+   });;
+
+ 
+
+
+  } 
 
   getRandomPubkey(){
     var keyPair = foo.bitcoin.ECPair.makeRandom();
