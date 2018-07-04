@@ -44,6 +44,7 @@ export class ServerlessSendPage {
 
        this.serverless = {
             sendamount: '',
+            sendpincode: '',
             sendqrcode: '',
             sendstring: '',
             sendtxid: '',
@@ -140,11 +141,15 @@ export class ServerlessSendPage {
 
   prepareToSend(){
 
-    this.showLoader();
     this.sendingset = this.serverlessService.getSendingSet();
     //alert(JSON.stringify(this.sendingset));
+    this.showLoader();
+    this.serverless.sendpincode = this.sendingset.moneydata.randompin;
+    this.serverless.sendaddress = this.sendingset.address;
+
     var removedpinset = this.sendingset; 
     removedpinset.moneydata.randompin = '';
+
     this.serverless.sendstring = JSON.stringify(removedpinset);
     this.serverless.sendqrcode = JSON.stringify(removedpinset);
     this.serverlessService.prepareToSend(this.serverless.sendamount, this.sendingset).then ((result) => {

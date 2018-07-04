@@ -31,31 +31,14 @@ export class Serverless {
 
   }
   
-  rng () { return foo.Buffer.Buffer.from('pzzttyyzzzzzzzzzzzzzzzzzzzzzzzzz') }
+  rng () { return foo.Buffer.Buffer.from('qzzttyyzzzzzzzzzzzzzzzzzzzzzzzzz') }
 
-  getCouponAddress()
+  getWalletAddress ()
   {
+    
+     return this.activatingkeypair.getAddress();
 
-  var couponstub = {
-   couponhash: 1,
-   couponpin: 2
-  };
-
-  var keyPair = foo.bitcoin.ECPair.makeRandom();
-  var uidkey =  keyPair.getPublicKeyBuffer();
-  var globalnetwork = foo.bitcoin.networks.testnet;
-
-  var Pin = JSON.stringify(couponstub);
-  var Pinkey = foo.Buffer.Buffer.from(Pin);
-
-   var docaddr = foo.bitcoincontrol.compositekeylib.getBufControlCodeAddress(Pinkey,
-                uidkey,
-                globalnetwork);
-   console.log("docaddr = "+docaddr);
-
-   return docaddr;
-
-   }
+  }
 
   getSendingSet()
   {
@@ -65,7 +48,9 @@ export class Serverless {
   var moneydata = {
    planid: 1,
    vendorid: 1,
-   randompin: 2
+   expiry: 1,
+   createdate: 1,
+   randompin: '2626727'
   };
 
   var keyPair = foo.bitcoin.ECPair.makeRandom();

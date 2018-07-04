@@ -28,6 +28,10 @@
             <button item-right ion-button class="colorbutton" (click)="getPaymentBalance()">Scan QR </button>
         </ion-item>
         <ion-item *ngIf="serverless" >
+        <ion-input type="text" [(ngModel)]="serverless.receivedstring" placeholder="Enter received string"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="serverless" >
         <ion-input type="text" [(ngModel)]="serverless.receivedpincode" placeholder="Enter PIN code  "></ion-input>
 
         </ion-item>
