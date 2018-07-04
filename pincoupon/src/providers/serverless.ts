@@ -84,7 +84,6 @@ export class Serverless {
     txpromise.then(function(tx) {
      console.log(tx.toHex());
      foo.bitcoincontrol.serverlesslib.sendtx(tx).then(function(tx1) {
-
      console.log("sending=", JSON.stringify(tx1));
      resolve(tx1);
     }).catch (function(error){
@@ -100,6 +99,36 @@ export class Serverless {
    }); 
 
   } 
+
+  receiveFund(creatorstub, uidkey,address)
+  {
+    return new Promise((resolve, reject) => { 
+     var txpromise = foo.bitcoincontrol.serverlesslib.compReceiveFund(creatorstub, uidkey, address);
+     txpromise.then(function(tx) {
+      if(tx != 0) {
+        console.log(tx.toHex());
+         foo.bitcoincontrol.serverlesslib.sendtx(tx).then(function(tx1) {
+         console.log("sending=", JSON.stringify(tx1));
+         resolve(tx1);
+        }).catch (function(error){
+         console.log(error);
+         reject (error);
+        });
+      }
+      else {
+         console.log("no balance to withdraw");
+         reject ("no balance to withdraw");
+       }
+     }).catch (function(error){
+
+      console.log(error);
+     reject (error);
+    });;
+   }); 
+
+
+  }
+
 
   getRandomPubkey(){
     var keyPair = foo.bitcoin.ECPair.makeRandom();

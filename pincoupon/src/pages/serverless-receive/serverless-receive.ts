@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Payment } from '../../providers/payment';
+import { Serverless } from '../../providers/serverless';
 
 /**
  * Generated class for the PaymentAcceptPage page.
@@ -8,6 +9,9 @@ import { Payment } from '../../providers/payment';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
+declare var foo;
+
 
 @IonicPage()
 @Component({
@@ -29,6 +33,7 @@ export class ServerlessReceivePage {
 
   constructor(public navCtrl: NavController, public paymentService: Payment, 
               public loadingCtrl: LoadingController,
+              public serverlessService: Serverless,
               public navParams: NavParams) {
 
        this.paymentdata = {
@@ -37,6 +42,8 @@ export class ServerlessReceivePage {
 
        this.serverless = {
             receivedqrcode: '',
+            receivedstring: '',
+            receivedtxid: '',
             receivedpincode: '',
             receivedaddress: '',
             receivedamount: ''
@@ -128,8 +135,28 @@ export class ServerlessReceivePage {
         console.log("not allowed");
     });
   }
+ 
+  receiveFund(){
+ 
+    var stub = JSON.parse(this.serverless.receivedstring); 
+    stub.moneydata.randompin = this.serverless.receivedpincode;
+    var address=stub.address;
+    var uid= new foo.Buffer.Buffer(stub.uidkey, 'hex');
 
 
+
+     this.showLoader();
+
+     this.serverlessService.receiveFund(stub, uid, address ).then ((result) => {
+ 
+       this.loading.dismiss();
+       this.serverless.receivedtxid = result;
+ 
+     }, (err) => {
+       this.loading.dismiss();
+      console.log("err="+ err);
+     });
 
   
+  }
 }

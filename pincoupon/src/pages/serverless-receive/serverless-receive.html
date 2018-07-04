@@ -41,8 +41,12 @@
         </ion-item>
         <ion-item>
             <ion-label > Received amount: {{serverless.receivedamount}} </ion-label>
-            <button item-right ion-button (click)="getPayment()" class="colorbutton" >Accept payment   </button>
+            <button item-right ion-button (click)="receiveFund()" class="colorbutton" >Receive fund </button>
         </ion-item>
+        <ion-item>
+            Received transaction-id <ion-textarea [ngModel]="serverless.receivedtxid">  </ion-textarea>
+        </ion-item>
+
         <ion-item-divider class="roundedge" >
             <p> Received address balance </p>
         </ion-item-divider>
