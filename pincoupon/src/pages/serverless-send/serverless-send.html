@@ -32,12 +32,19 @@
             <button item-right ion-button class="colorbutton" (click)="getPaymentBalance()">Share button </button>
         </ion-item>
         <ion-item> <!-- *ngIf="serverless.sendqrcode" -->
-            <ion-label > PIN code to send: {{serverless.sendqrcode}} </ion-label> 
+            <ion-label > String to send: {{serverless.sendstring}} </ion-label> 
+            <button item-right ion-button class="colorbutton" (click)="getPaymentBalance()">Share button </button>
+        </ion-item>
+        <ion-item> <!-- *ngIf="serverless.sendqrcode" -->
+            <ion-label > PIN code to send: {{serverless.sendpincode}} </ion-label> 
             <button item-right ion-button class="colorbutton" (click)="getPaymentBalance()">Share button </button>
         </ion-item>
         <ion-item>
             <ion-label > Address of payment :{{serverless.sendaddress}} </ion-label> 
-            <button item-left ion-button class="colorbutton" (click)="getPaymentBalance()">Check balance </button>
+            <button item-right ion-button class="colorbutton" (click)="getPaymentBalance()">Check balance </button>
+        </ion-item>
+        <ion-item>
+            <ion-label > Sent transaction-id : {{serverless.sendtxid  }} </ion-label> 
         </ion-item>
         <ion-item>
             <ion-label > Balance : {{balance.balance  }} </ion-label> 

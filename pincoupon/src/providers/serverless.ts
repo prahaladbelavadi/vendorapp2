@@ -31,7 +31,7 @@ export class Serverless {
 
   }
   
-  rng () { return foo.Buffer.Buffer.from('zzzttyyzzzzzzzzzzzzzzzzzzzzzzzzz') }
+  rng () { return foo.Buffer.Buffer.from('pzzttyyzzzzzzzzzzzzzzzzzzzzzzzzz') }
 
   getCouponAddress()
   {
@@ -80,7 +80,7 @@ export class Serverless {
 
    var set = {
       address: docaddr,
-      uidkey: uidkey,
+      uidkey: uidkey.toString('hex'),
       moneydata: moneydata
    };
 
@@ -88,26 +88,31 @@ export class Serverless {
 
   }
 
-  prepareToSend(amount)
+  prepareToSend(amount, addressset)
   {
-    var addressset = this.getSendingSet();
+    // var addressset = this.getSendingSet();
 
     var serverlesstype = 1;
+    return new Promise((resolve, reject) => { 
+
     var txpromise = foo.bitcoincontrol.serverlesslib.regularSendingFund(serverlesstype, amount, addressset.address, this.activatingkeypair); // -> popup for partner to send money, amount
     txpromise.then(function(tx) {
      console.log(tx.toHex());
      foo.bitcoincontrol.serverlesslib.sendtx(tx).then(function(tx1) {
 
      console.log("sending=", JSON.stringify(tx1));
+     resolve(tx1);
     }).catch (function(error){
      console.log(error);
+     reject (error);
     });
     }).catch (function(error){
      console.log(error);
+     reject (error);
    });;
 
- 
 
+   }); 
 
   } 
 

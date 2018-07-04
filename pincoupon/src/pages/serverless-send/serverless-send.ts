@@ -10,6 +10,9 @@ import { Serverless } from '../../providers/serverless';
  * Ionic pages and navigation.
  */
 
+declare var foo;
+
+
 @IonicPage()
 @Component({
   selector: 'page-serverless-send',
@@ -23,6 +26,8 @@ export class ServerlessSendPage {
   balance: any;
   loading: any;
   serverless: any;
+  sendingset: any;
+  broadcasttx: any;
   paymentdata: any;
   acceptstatus: any; 
   acceptdata: any;
@@ -35,10 +40,13 @@ export class ServerlessSendPage {
        this.paymentdata = {
             paymentid: ''
        };
+       this.broadcasttx= '';
 
        this.serverless = {
             sendamount: '',
             sendqrcode: '',
+            sendstring: '',
+            sendtxid: '',
             sendaddress: ''
        };
 
@@ -53,6 +61,12 @@ export class ServerlessSendPage {
             paymentmetadata: '',
             acceptaddress: ''
        };
+      this.sendingset = {
+      address: '',
+      uidkey: '',
+      moneydata: ''
+      };
+
 
   }
 
@@ -126,23 +140,25 @@ export class ServerlessSendPage {
 
   prepareToSend(){
 
-
-    this.serverlessService.prepareToSend(100);
-/*
     this.showLoader();
-    this.serverlessService.getPaymentBalance(100).then((result) => {
+    this.sendingset = this.serverlessService.getSendingSet();
+    //alert(JSON.stringify(this.sendingset));
+    var removedpinset = this.sendingset; 
+    removedpinset.moneydata.randompin = '';
+    this.serverless.sendstring = JSON.stringify(removedpinset);
+    this.serverless.sendqrcode = JSON.stringify(removedpinset);
+    this.serverlessService.prepareToSend(this.serverless.sendamount, this.sendingset).then ((result) => {
 
       this.loading.dismiss();
-      this.balance = result;
-
+      this.serverless.sendtxid = result;
 
     }, (err) => {
       this.loading.dismiss();
-        console.log("not allowed");
+     console.log("err="+ err);
     });
-*/
-  }
+ 
 
+  }
 
   
 }

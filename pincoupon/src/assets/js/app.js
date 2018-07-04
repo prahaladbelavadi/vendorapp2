@@ -40306,6 +40306,9 @@ var activatepromise = new Promise(function (resolve, reject) {
     if(globalbalance == 0)
     {
 	console.log("globalbalance="+globalbalance);
+        var error = "Balance is zero";
+        reject(error);
+
     }    
 
     console.log("globalbalance="+globalbalance);
@@ -40541,7 +40544,8 @@ var config = {
    var promise = new Promise(function (resolve, reject) {
    console.log("before push=", JSON.stringify(pushtx));
 
-   request.post(lurl, JSON.stringify(pushtx) , function (error, response, body) {
+   
+   request.post(lurl, {body:JSON.stringify(pushtx)} , function (error, response, body) {
         if (error) {
            reject(error);
         }
