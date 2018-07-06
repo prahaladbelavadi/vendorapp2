@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Payment } from '../../providers/payment';
 import { Serverless } from '../../providers/serverless';
+import {QRCodeComponent} from 'angular2-qrcode';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 /**
  * Generated class for the PaymentAcceptPage page.
@@ -31,9 +33,11 @@ export class ServerlessSendPage {
   paymentdata: any;
   acceptstatus: any; 
   acceptdata: any;
+  @ViewChild(QRCodeComponent) qrcode: QRCodeComponent;
 
   constructor(public navCtrl: NavController, public paymentService: Payment, 
               public loadingCtrl: LoadingController,
+              public socialSharing: SocialSharing,
               public serverlessService: Serverless,
               public navParams: NavParams) {
 
@@ -75,6 +79,7 @@ export class ServerlessSendPage {
     console.log('ionViewDidLoad PaymentIssuePage');
   }
 
+
   showLoader(){
 
     this.loading = this.loadingCtrl.create({
@@ -85,6 +90,36 @@ export class ServerlessSendPage {
 
   }
   
+  regularShare(index){
+  var msg =1;
+  let el: ElementRef = this.qrcode['elementRef'];
+let html : string  = el.nativeElement.innerHTML;
+let img64: string  = html.substr(0, html.length - 2).split('base64,')[1];
+
+  this.socialSharing.share(null, null, img64, html);
+  }
+
+  twitterShare(index){
+  let el: ElementRef = this.qrcode['elementRef'];
+let html : string  = el.nativeElement.innerHTML;
+let img64: string  = html.substr(0, html.length - 2).split('base64,')[1];
+  this.socialSharing.shareViaTwitter(null, img64, html);
+  }
+
+  facebookShare(index){
+  let el: ElementRef = this.qrcode['elementRef'];
+let html : string  = el.nativeElement.innerHTML;
+let img64: string  = html.substr(0, html.length - 2).split('base64,')[1];
+    this.socialSharing.shareViaFacebook(null, img64, html);
+  }
+  
+  whatsappShare(index){
+  let el: ElementRef = this.qrcode['elementRef'];
+let html : string  = el.nativeElement.innerHTML;
+let img64: string  = html.substr(0, html.length - 2).split('base64,')[1];
+   this.socialSharing.shareViaWhatsApp('msg', img64, null);
+ }
+
 
   getPayment() {
     this.showLoader();
@@ -150,8 +185,9 @@ export class ServerlessSendPage {
     var removedpinset = this.sendingset; 
     removedpinset.moneydata.randompin = '';
 
-    this.serverless.sendstring = JSON.stringify(removedpinset);
-    this.serverless.sendqrcode = JSON.stringify(removedpinset);
+    this.serverless.sendstring = (new foo.Buffer.Buffer(JSON.stringify(removedpinset))).toString('base64');
+    this.serverless.sendqrcode = (new foo.Buffer.Buffer(JSON.stringify(removedpinset))).toString('base64');
+
     this.serverlessService.prepareToSend(this.serverless.sendamount, this.sendingset).then ((result) => {
 
       this.loading.dismiss();

@@ -31,7 +31,7 @@ export class Serverless {
 
   }
   
-  rng () { return foo.Buffer.Buffer.from('qzzttyyzzzzzzzzzzzzzzzzzzzzzzzzz') }
+  rng () { return foo.Buffer.Buffer.from('pzzttyyzzzzzzzzzzzzzzzzzzzzzzzzz') }
 
   getWalletAddress ()
   {
@@ -103,7 +103,7 @@ export class Serverless {
   receiveFund(creatorstub, uidkey,address)
   {
     return new Promise((resolve, reject) => { 
-     var txpromise = foo.bitcoincontrol.serverlesslib.compReceiveFund(creatorstub, uidkey, address);
+     var txpromise = foo.bitcoincontrol.serverlesslib.compReceive1toManyFund(creatorstub, uidkey, address);
      txpromise.then(function(tx) {
       if(tx != 0) {
         console.log(tx.toHex());

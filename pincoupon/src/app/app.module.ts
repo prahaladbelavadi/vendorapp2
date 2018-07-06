@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
+import { QRCodeModule } from 'angular2-qrcode';
 import { MyApp } from './app.component';
 import { HomePageModule } from '../pages/home/home.module';
 import { ListPageModule } from '../pages/list/list.module';
@@ -50,6 +52,7 @@ import { CouponviewPageModule } from '../pages/couponview/couponview.module';
     BrowserModule,
     HttpModule,
     HomePageModule,
+    QRCodeModule,
     ListPageModule,
     PlansPageModule,
     PlanviewPageModule,
@@ -86,6 +89,7 @@ import { CouponviewPageModule } from '../pages/couponview/couponview.module';
     Bitcoin, 
     Payment, 
     Popservice, 
+    SocialSharing,
     Auth,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

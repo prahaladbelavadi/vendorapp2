@@ -44,7 +44,7 @@ export class ServerlessReceivePage {
             receivedqrcode: '',
             receivedstring: '',
             receivedtxid: '',
-            receivedpincode: '',
+            receivedpincode: '2626727',
             receivedaddress: '',
             receivedamount: ''
        };
@@ -138,10 +138,11 @@ export class ServerlessReceivePage {
  
   receiveFund(){
  
-    var stub = JSON.parse(this.serverless.receivedstring); 
-    stub.moneydata.randompin = this.serverless.receivedpincode;
-    var address=stub.address;
-    var uid= new foo.Buffer.Buffer(stub.uidkey, 'hex');
+    var data = JSON.parse(this.serverless.receivedstring); 
+    var stub = data.moneydata;
+    stub.randompin = this.serverless.receivedpincode;
+    var address=data.address;
+    var uid= new foo.Buffer.Buffer(data.uidkey, 'hex');
 
 
 
