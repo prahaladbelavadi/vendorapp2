@@ -19,6 +19,9 @@ import { Bitcoin } from '../providers/bitcoin';
 import { Popservice } from '../providers/popservice';
 import { Payment } from '../providers/payment';
 import { Serverless } from '../providers/serverless';
+import { ServerlessWallet } from '../providers/serverlesswallet';
+import { ServerlessTransaction } from '../providers/serverlesstransaction';
+import { ServerlessPayment } from '../providers/serverlesspayment';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -88,6 +91,9 @@ import { CouponviewPageModule } from '../pages/couponview/couponview.module';
     Serverless, 
     Bitcoin, 
     Payment, 
+    ServerlessPayment, 
+    ServerlessTransaction, 
+    ServerlessWallet, 
     Popservice, 
     SocialSharing,
     Auth,

@@ -29,6 +29,9 @@
         </ion-item>
 
   <ion-card >
+    <ion-card-title>
+   Pay as QR-code
+      </ion-card-title>
 <ion-card-content >
 
 <qr-code id="qrcode" [value]="serverless.sendqrcode" [size]="200" ></qr-code>
@@ -59,23 +62,75 @@
       </ion-row>
     </ion-grid>
   </ion-card>
+  <ion-card>
+    <ion-card-title>
+  Pay as message
+      </ion-card-title>
+  <ion-card-content>
+    <p>
+            {{serverless.sendstring}} 
+    </p>
+  </ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-only (click)="regularShare(i)" color="primary" clear>
+        <ion-icon class="share-icon" name="share"></ion-icon>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only (click)="whatsappShare(i)" color="primary" clear>
+        <ion-icon class="share-icon" name="logo-whatsapp"></ion-icon>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only (click)="facebookShare(i)" color="primary" clear>
+        <ion-icon  class="share-icon" name="logo-facebook"></ion-icon>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only (click)="twitterShare(i)" color="primary" clear>
+        <ion-icon class="share-icon" name="logo-twitter"></ion-icon>
+      </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-card>
 
 
-<ion-item *ngIf="serverless.sendqrcode">
-<qr-code [value]="serverless.sendqrcode" [size]="200"></qr-code>
-</ion-item>
-        <ion-item> <!-- *ngIf="serverless.sendqrcode" -->
-            <ion-label > QR code to send: {{serverless.sendqrcode}} </ion-label> 
-            <button item-right ion-button class="colorbutton" (click)="getPaymentBalance()">Share button </button>
-        </ion-item>
-        <ion-item> <!-- *ngIf="serverless.sendqrcode" -->
-            <ion-card text-wrap > String to send: {{serverless.sendstring}} </ion-card> 
-            <button item-right ion-button class="colorbutton" (click)="getPaymentBalance()">Share button </button>
-        </ion-item>
-        <ion-item> <!-- *ngIf="serverless.sendqrcode" -->
-            <ion-label > PIN code to send: {{serverless.sendpincode}} </ion-label> 
-            <button item-right ion-button class="colorbutton" (click)="getPaymentBalance()">Share button </button>
-        </ion-item>
+  <ion-card>
+    <ion-card-title>
+  PIN needed by receiver of fund
+      </ion-card-title>
+  <ion-card-content>
+
+            {{serverless.sendpincode}} 
+  </ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-only (click)="regularShare(i)" color="primary" clear>
+        <ion-icon class="share-icon" name="share"></ion-icon>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only (click)="whatsappShare(i)" color="primary" clear>
+        <ion-icon class="share-icon" name="logo-whatsapp"></ion-icon>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only (click)="facebookShare(i)" color="primary" clear>
+        <ion-icon  class="share-icon" name="logo-facebook"></ion-icon>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only (click)="twitterShare(i)" color="primary" clear>
+        <ion-icon class="share-icon" name="logo-twitter"></ion-icon>
+      </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-card>
         <ion-item>
             <ion-label > Address of payment :{{serverless.sendaddress}} </ion-label> 
             <button item-right ion-button class="colorbutton" (click)="getPaymentBalance()">Check balance </button>
